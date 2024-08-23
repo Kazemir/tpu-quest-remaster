@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b8soj2bis0v14"]
+
+[ext_resource type="FontFile" uid="uid://cjkn06y4uh5aa" path="res://content/font/PixelCyr.ttf" id="1_1y4hl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ofwjs"]
+
+[resource]
+ActionLabel/base_type = &"Label"
+ActionLabel/font_sizes/font_size = 14
+GridContainer/constants/h_separation = 8
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("1_1y4hl")
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_ofwjs")

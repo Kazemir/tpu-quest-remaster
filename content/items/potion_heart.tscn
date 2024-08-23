@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbdelcn87s5vv"]
+
+[ext_resource type="PackedScene" uid="uid://43mv5eduelbw" path="res://content/items/potion.tscn" id="1_4hdmd"]
+
+[node name="PotionHeart" type="Node2D"]
+
+[node name="Potion" parent="." instance=ExtResource("1_4hdmd")]
+type = 2

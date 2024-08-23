@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://di1ltu7leiaqb"]
+
+[ext_resource type="Texture2D" uid="uid://cefm6fdvflvsq" path="res://content/graphics/characters/lukegg.png" id="1_ddyc5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sprpc"]
+atlas = ExtResource("1_ddyc5")
+region = Rect2(0, 0, 80, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw3us"]
+atlas = ExtResource("1_ddyc5")
+region = Rect2(80, 0, 80, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wja0u"]
+atlas = ExtResource("1_ddyc5")
+region = Rect2(160, 0, 80, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c78v2"]
+atlas = ExtResource("1_ddyc5")
+region = Rect2(240, 0, 80, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5kxs"]
+atlas = ExtResource("1_ddyc5")
+region = Rect2(320, 0, 80, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p1y3"]
+atlas = ExtResource("1_ddyc5")
+region = Rect2(400, 0, 80, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frmoo"]
+atlas = ExtResource("1_ddyc5")
+region = Rect2(480, 0, 80, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4vle"]
+atlas = ExtResource("1_ddyc5")
+region = Rect2(560, 0, 80, 164)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cr8y6"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_sprpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw3us")
+}, {
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_wja0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw3us")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c78v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5kxs")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_2p1y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frmoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4vle")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ibay"]
+radius = 34.0
+height = 86.0
+
+[node name="Trader" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -40)
+scale = Vector2(0.48, 0.48)
+sprite_frames = SubResource("SpriteFrames_cr8y6")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -43)
+shape = SubResource("CapsuleShape2D_4ibay")

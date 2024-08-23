@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6kalbhwh73rd"]
+
+[ext_resource type="Script" path="res://content/levels/settings_menu.gd" id="1_4s3fs"]
+[ext_resource type="Theme" uid="uid://bjyrd3fvcdm2" path="res://content/themes/menu_theme.tres" id="1_g0ub7"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4s3fs")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.5
+offset_top = -177.0
+offset_right = 156.5
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 90
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_g0ub7")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="NewGameLabel" type="Label" parent="MarginContainer/GridContainer/CenterContainer"]
+layout_mode = 2
+text = "mainMenu_settings"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/GridContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 100
+columns = 2
+
+[node name="SoundLabel" type="Label" parent="MarginContainer/GridContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "settingsMenu_sound"
+
+[node name="SoundValue" type="Label" parent="MarginContainer/GridContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "//////----"
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/GridContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "settingsMenu_music"
+
+[node name="MusicValue" type="Label" parent="MarginContainer/GridContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "//////----"
+
+[node name="LangueLabel" type="Label" parent="MarginContainer/GridContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "settingsMenu_language"
+
+[node name="LangueValue" type="Label" parent="MarginContainer/GridContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "settingsMenu_language_name"

@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://byvuu261ncdd0"]
+
+[ext_resource type="Texture2D" uid="uid://hgaomdgsb17x" path="res://content/graphics/bg.jpg" id="1_c8gty"]
+[ext_resource type="Script" path="res://content/levels/main_menu.gd" id="1_g41pn"]
+[ext_resource type="Theme" uid="uid://bjyrd3fvcdm2" path="res://content/themes/menu_theme.tres" id="2_4q0l0"]
+[ext_resource type="Texture2D" uid="uid://do8fcxjjfa8vk" path="res://content/graphics/logo_vertical_color_light.svg" id="4_bwfcu"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_g41pn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_c8gty")
+
+[node name="MainMenuContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.5
+offset_top = -177.0
+offset_right = 156.5
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 100
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MainMenuContainer"]
+layout_mode = 2
+theme = ExtResource("2_4q0l0")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MainMenuContainer/GridContainer"]
+layout_mode = 2
+
+[node name="NewGameLabel" type="Label" parent="CanvasLayer/MainMenuContainer/GridContainer/CenterContainer"]
+layout_mode = 2
+text = "mainMenu_newGame"
+
+[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer/MainMenuContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ContinueLabel" type="Label" parent="CanvasLayer/MainMenuContainer/GridContainer/CenterContainer2"]
+layout_mode = 2
+text = "mainMenu_continue"
+
+[node name="CenterContainer3" type="CenterContainer" parent="CanvasLayer/MainMenuContainer/GridContainer"]
+layout_mode = 2
+
+[node name="SettingsLabel" type="Label" parent="CanvasLayer/MainMenuContainer/GridContainer/CenterContainer3"]
+layout_mode = 2
+text = "mainMenu_settings"
+
+[node name="CenterContainer4" type="CenterContainer" parent="CanvasLayer/MainMenuContainer/GridContainer"]
+layout_mode = 2
+
+[node name="HighScoresLabel" type="Label" parent="CanvasLayer/MainMenuContainer/GridContainer/CenterContainer4"]
+layout_mode = 2
+text = "mainMenu_score"
+
+[node name="CenterContainer5" type="CenterContainer" parent="CanvasLayer/MainMenuContainer/GridContainer"]
+layout_mode = 2
+
+[node name="AuthorsLabel" type="Label" parent="CanvasLayer/MainMenuContainer/GridContainer/CenterContainer5"]
+layout_mode = 2
+text = "mainMenu_authors"
+
+[node name="CenterContainer6" type="CenterContainer" parent="CanvasLayer/MainMenuContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ExitLabel" type="Label" parent="CanvasLayer/MainMenuContainer/GridContainer/CenterContainer6"]
+layout_mode = 2
+text = "mainMenu_exit"
+
+[node name="GodotLogo" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -169.0
+offset_top = -223.0
+offset_right = 2.0
+offset_bottom = -71.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_bwfcu")
+expand_mode = 1
+stretch_mode = 4

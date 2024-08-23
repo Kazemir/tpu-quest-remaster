@@ -1,0 +1,157 @@
+[gd_scene load_steps=2 format=3 uid="uid://bohck1ybvbhcx"]
+
+[ext_resource type="Theme" uid="uid://bjyrd3fvcdm2" path="res://content/themes/menu_theme.tres" id="1_36eo1"]
+
+[node name="AuthorsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.5
+offset_top = -177.0
+offset_right = 156.5
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 100
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_36eo1")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="NewGameLabel" type="Label" parent="MarginContainer/GridContainer/CenterContainer"]
+layout_mode = 2
+text = "mainMenu_score"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="ScoreList" type="GridContainer" parent="MarginContainer/GridContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = -10
+columns = 2
+
+[node name="Label" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreUsername"
+text = "AAA
+"
+
+[node name="Label2" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreValue"
+text = "000000830"
+
+[node name="Label3" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreUsername"
+text = "AAA
+"
+
+[node name="Label4" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreValue"
+text = "000000000"
+
+[node name="Label5" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreUsername"
+text = "AAA
+"
+
+[node name="Label6" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreValue"
+text = "000000000"
+
+[node name="Label7" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreUsername"
+text = "AAA
+"
+
+[node name="Label8" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreValue"
+text = "000000000"
+
+[node name="Label9" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreUsername"
+text = "AAA
+"
+
+[node name="Label10" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreValue"
+text = "000000000"
+
+[node name="Label11" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreUsername"
+text = "AAA
+"
+
+[node name="Label12" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreValue"
+text = "000000000"
+
+[node name="Label13" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreUsername"
+text = "AAA
+"
+
+[node name="Label14" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreValue"
+text = "000000000"
+
+[node name="Label15" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreUsername"
+text = "AAA
+"
+
+[node name="Label16" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreValue"
+text = "000000000"
+
+[node name="Label17" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreUsername"
+text = "AAA
+"
+
+[node name="Label18" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreValue"
+text = "000000000"
+
+[node name="Label19" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreUsername"
+text = "AAA
+"
+
+[node name="Label20" type="Label" parent="MarginContainer/GridContainer/MarginContainer/ScoreList"]
+layout_mode = 2
+theme_type_variation = &"ScoreValue"
+text = "000000000"

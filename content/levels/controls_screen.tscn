@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://fk0ua0ms8jb3"]
+
+[ext_resource type="Texture2D" uid="uid://vtv6o0xt8ips" path="res://content/graphics/controls.jpg" id="1_obmhd"]
+
+[node name="ControlsScreen" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_obmhd")

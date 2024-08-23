@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs82nrqoucpff"]
+
+[ext_resource type="Script" path="res://content/helpers/change_map_helper.gd" id="1_clsgh"]
+[ext_resource type="Theme" uid="uid://b8soj2bis0v14" path="res://content/themes/hud_theme.tres" id="1_lwr74"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwx3e"]
+size = Vector2(55, 81)
+
+[node name="ChangeMapHelper" type="Area2D"]
+script = ExtResource("1_clsgh")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -40.5)
+shape = SubResource("RectangleShape2D_xwx3e")
+
+[node name="EnterLabel" type="Label" parent="."]
+offset_left = -58.0
+offset_top = -100.0
+offset_right = 60.0
+offset_bottom = -77.0
+theme = ExtResource("1_lwr74")
+theme_type_variation = &"ActionLabel"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "gameHelp_enter"
+horizontal_alignment = 1
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

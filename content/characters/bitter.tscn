@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce80f7k81y6yi"]
+
+[ext_resource type="Texture2D" uid="uid://c3npn56vwuvme" path="res://content/graphics/characters/gremlins.png" id="1_twl5x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk5bm"]
+atlas = ExtResource("1_twl5x")
+region = Rect2(90, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbefg"]
+atlas = ExtResource("1_twl5x")
+region = Rect2(120, 0, 30, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vl6u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk5bm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbefg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e3nk"]
+size = Vector2(73, 61)
+
+[node name="Bitter" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -41)
+scale = Vector2(2.7, 2.7)
+sprite_frames = SubResource("SpriteFrames_1vl6u")
+autoplay = "default"
+frame = 1
+frame_progress = 0.102894
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -31.5)
+shape = SubResource("RectangleShape2D_7e3nk")

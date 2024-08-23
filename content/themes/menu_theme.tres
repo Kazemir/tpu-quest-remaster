@@ -1,0 +1,30 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bjyrd3fvcdm2"]
+
+[ext_resource type="FontFile" uid="uid://dv2r1wmumw5g5" path="res://content/font/Molot.ttf" id="1_2ear2"]
+[ext_resource type="FontFile" uid="uid://d0jileq7sgpgq" path="res://content/font/Imperial.ttf" id="1_h42le"]
+[ext_resource type="FontFile" uid="uid://cjkn06y4uh5aa" path="res://content/font/PixelCyr.ttf" id="3_hbgiq"]
+[ext_resource type="FontFile" uid="uid://wsumxatdb1tw" path="res://content/font/JoystixMonospace.ttf" id="4_tkyu8"]
+
+[resource]
+Body1/base_type = &"Label"
+Body1/font_sizes/font_size = 24
+Body1/fonts/font = ExtResource("1_h42le")
+Body2/base_type = &"Label"
+Body2/font_sizes/font_size = 20
+Body2/fonts/font = ExtResource("1_h42le")
+Body3/base_type = &"Label"
+Body3/font_sizes/font_size = 14
+Body3/fonts/font = ExtResource("1_h42le")
+ItemList/colors/font_color = Color(0, 0, 0, 1)
+ItemList/colors/font_selected_color = Color(1, 0, 0, 1)
+ItemList/font_sizes/font_size = 32
+ItemList/fonts/font = ExtResource("1_2ear2")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_2ear2")
+ScoreUsername/base_type = &"Label"
+ScoreUsername/font_sizes/font_size = 24
+ScoreUsername/fonts/font = ExtResource("3_hbgiq")
+ScoreValue/base_type = &"Label"
+ScoreValue/font_sizes/font_size = 24
+ScoreValue/fonts/font = ExtResource("4_tkyu8")

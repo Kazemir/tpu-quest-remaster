@@ -1,0 +1,26 @@
+keys,ru,en,de,ua,by,gag,fr,es,it,cz,pt
+mainMenu_newGame,Новая игра,New Game,Neues Spiel,Нова гра,Новая гульня,Eni oyun,Nouveau jeu,Nuevo juego,Nuova gioco,Nová hra,Novo jogo
+mainMenu_continue,Продолжить игру,Continue Game,Spiel fortsetzen,Продовжити гру,Працягнуць гульню,Devam etm?? oyun,Continuer jeu,Continuar juego,Continuare gioco,Pokračovat ve hře,Continuar jogo
+mainMenu_settings,Настройки,Settings,Einstellungen,Налаштування,Налады,Ayarlar,Paramètres,Ajustes,Impostazioni,Nastavení,Configurações
+mainMenu_score,Рекорды,High Scores,High Scores,Рекорди,Рэйтынг,Rekordlar,Meilleurs scores,Puntuaciones,Punteggi,Skóre,Pontuações
+mainMenu_authors,Авторы,Authors,Autoren,Автори,Аўтары,Avtorlar,Auteurs,Autores,Autori,Autoři,Autores
+mainMenu_exit,Выход,Exit,Beenden,Вихід,Выхад,Çıkış,Sortie,Salida,Uscita,Ukončit,Saída
+mainMenu_exitSure,Вы действительно хотите выйти?,Are you sure you want to exit?,Möchten Sie wirklich beenden?,Ви дійсно хочете вийти?,Вы сапраўды хочаце выйсці?,Çıkmak istediğinizden emin misiniz?,Êtes-vous sûr de vouloir quitter?,¿Estás seguro de que quieres salir?,Sei sicuro di voler uscire?,"Jste si jisti, že chcete ukončit?",Tem certeza de que deseja sair?
+yesNoForBox,"ДА - ENTER, НЕТ - ESC","YES - ENTER, NO - ESC","JA - ENTER, NEIN - ESC","ТАК - ENTER, НІ - ESC","ТАК - ENTER, НІ - ESC","EVET - ENTER, HAYIR - ESC","OUI - ENTRER, NON - ESC","SÍ - ENTRAR, NO - ESC","SÌ - ENTRA, NO - ESC","ANO - ENTER, NE - ESC","SIM - ENTER, NÃO - ESC"
+authorsMenu_dasha,Горбунова Дарья aka "tommy-zola",Gorbunova Darya,Gorbunova Darya,Горбунова Дарина,Горбунова Дар'я,Gorbunova Dasha,Gorbunova Daria,Gorbunova Daria,Gorbunova Daria,Gorbunova Daria,Gorbunova Daria
+authorsMenu_vova,Кержин Владимир aka "konzhut",Kerzhin Vladimir,Kerzhin Vladimir<,Кержін Володимир,Кержин Уладзімір,Kerzhin Vladimir,Kerzhin Vladimir,Kerzhin Vladimir,Kerzhin Vladimir,Kerzhin Vladimir,Kerzhin Vladimir
+authorsMenu_misha,Четвериков Михаил aka "kazemir",Chetverikov "kazemir" Mikhail,Chetverikov Mikhail,Четвериков Михайло,Чацверыкоў Міхаіл,Chetverikov Mikhail,Chetverikov Mikhail,Chetverikov Mikhail,Chetverikov Mikhail,Chetverikov Mikhail,Chetverikov Mikhail
+authorsMenu_info,Проектирование и документация:,UML and documentation:,UML und Dokumentation:,Проектування та документація:,Праектаванне і дакументацыя:,Tasarım ve belgeler:,Conception et documentation:,Diseño y documentación:,Progettazione e documentazione:,Návrh a dokumentace:,Design e documentação:
+settingsMenu_sound,Звук:,Sound:,Ton:,Звук:,Звук:,Ses:,Son:,Sonido:,Suono:,Zvuk:,Som:
+settingsMenu_music,Музыка:,Music:,Musik:,Музика:,Музыка:,Müzik:,Musique:,Música:,Musica:,Hudba:,Música:
+settingsMenu_language,Язык:,Language:,Sprache:,Мова:,Мова:,Dil:,Langue:,Idioma:,Lingua:,Jazyk:,Língua:
+settingsMenu_language_name,Русский,English,Deutsch,Українська,Беларуская,Gagauza,Français,Español,Italiano,Čeština,Português
+game_winInput_caption,Сохранение рекорда,Save High Score,Rekord speichern,Збереження рекорду,Захаванне рэйтынгу,Rekoru kaydet,Enregistrer le score,Guardar puntuación,Salva punteggio,Uložit skóre,Salvar pontuação
+game_winInput_text,Вы набрали %d очков. Введите ваше имя!,You scored %d points. Enter your name!,Sie haben %d Punkte erreicht. Geben Sie Ihren Namen ein!,Ви набрали %d очок. Введіть ваше ім'я!,Вы набралі %d балаў. Увядзіце ваша імя!,%d puan kazandınız. Adınızı girin!,Vous avez marqué %d points. Entrez votre nom!,Has conseguido %d puntos. Introduce tu nombre!,Hai ottenuto %d punti. Inserisci il tuo nome!,Dosáhli jste %d bodů. Zadejte své jméno!,Você marcou %d pontos. Insira seu nome!
+game_traderBox_caption,Торговец,Trader,Handel,Торговець,Торгавец,Esnaflar,Marchand,Comerciante,Commerciante,Kupci,Comerciante
+game_talkerBox_caption,Безумец,Madguy,Wahnsinniger,Безумець,Бязумец,Deliler,Fou,Loco,Pazzo,Blázen,Louco
+gameHelp_enter,ВОЙТИ,ENTER,ENTER,УВІЙТІ,УВАЙСЦІ,GİRİŞ,ENTRER,ENTRAR,ENTRA,VSTOUPIT,ENTRAR
+gameHelp_talk,ГОВОРИТЬ,TALK,TALK,ГОВОРИТИ,ГАВАРЫЦЬ,KONUŞ,PARLER,HABLAR,PARLA,MLUVIT,FALAR
+gameHelp_trade,ТОРГОВАТЬ,TRADE,TRADE,ТОРГУВАТИ,ТОРГАВАЦЬ,TİCARET,COMMERCE,COMERCIO,COMMERCIARE,OBCHOD,TROCA
+gameMenu_pause,Пауза,Pause,Pause,Пауза,Паўза,Duraklat,Pause,Pausa,Pausa,Pauza,Pausa
+gameMenu_Exit,Выйти в главное меню,Exit to main menu,Zum Hauptmenü zurückkehren,Вийти в головне меню,Выйсці ў галоўнае меню,Ana menüye çıkış yap,Sortir au menu principal,Salir al menú principal,Uscire al menu principale,Opustit hlavní menu,Sair para o menu principal
