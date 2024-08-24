@@ -265,7 +265,7 @@ position = Vector2(2660, -81)
 position = Vector2(-2020, -441)
 
 [connection signal="body_entered" from="Coins/Coin" to="Coins/Coin" method="_on_body_entered"]
-[connection signal="body_entered" from="Coins/@Area2D@27420" to="Coins/@Area2D@27420" method="_on_body_entered"]
-[connection signal="body_entered" from="Coins/@Area2D@27421" to="Coins/@Area2D@27421" method="_on_body_entered"]
-[connection signal="body_entered" from="Coins/@Area2D@27422" to="Coins/@Area2D@27422" method="_on_body_entered"]
+[connection signal="body_entered" from="Coins/@Area2D@375756" to="Coins/@Area2D@375756" method="_on_body_entered"]
+[connection signal="body_entered" from="Coins/@Area2D@375757" to="Coins/@Area2D@375757" method="_on_body_entered"]
+[connection signal="body_entered" from="Coins/@Area2D@375758" to="Coins/@Area2D@375758" method="_on_body_entered"]
 [connection signal="body_entered" from="Potions/Potion" to="Potions/Potion" method="_on_body_entered"]

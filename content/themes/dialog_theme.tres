@@ -1,0 +1,40 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://b7cp6hc23xm1k"]
+
+[ext_resource type="FontFile" uid="uid://cjkn06y4uh5aa" path="res://content/font/PixelCyr.ttf" id="1_c4aqn"]
+[ext_resource type="FontFile" uid="uid://dv2r1wmumw5g5" path="res://content/font/Molot.ttf" id="2_4wh5w"]
+[ext_resource type="Texture2D" uid="uid://cejfjv718ysqe" path="res://content/graphics/dialog_box.png" id="2_fyl5m"]
+[ext_resource type="Texture2D" uid="uid://jjyryeethl5y" path="res://content/graphics/dialog_box_gray.png" id="3_2kj5c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_arwoe"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("2_fyl5m")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ybcx"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("3_2kj5c")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[resource]
+CaptionLabel/base_type = &"Label"
+CaptionLabel/font_sizes/font_size = 20
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 14
+Label/fonts/font = ExtResource("1_c4aqn")
+MenuLabel/base_type = &"Label"
+MenuLabel/font_sizes/font_size = 18
+MenuLabel/fonts/font = ExtResource("2_4wh5w")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_arwoe")
+PanelInner/base_type = &"PanelContainer"
+PanelInner/styles/panel = SubResource("StyleBoxTexture_3ybcx")
+VBoxContainer/constants/separation = 1
