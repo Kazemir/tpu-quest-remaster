@@ -1,10 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://dtw13btpgx5q2"]
+[gd_scene load_steps=30 format=3 uid="uid://dtw13btpgx5q2"]
 
 [ext_resource type="Texture2D" uid="uid://6ipdm8h6yhfp" path="res://content/graphics/characters/character.png" id="1_egk1u"]
 [ext_resource type="Script" path="res://content/characters/player.gd" id="1_waxjt"]
 [ext_resource type="AudioStream" uid="uid://dxm3t2bgrch2m" path="res://content/audio/player_soundJumpStart.wav" id="3_cd2hf"]
 [ext_resource type="AudioStream" uid="uid://bsnohfkpkwh21" path="res://content/audio/player_soundJumpStop.wav" id="4_trbxg"]
 [ext_resource type="Texture2D" uid="uid://bbkrxslju54uk" path="res://content/graphics/particle.png" id="5_0i8tl"]
+[ext_resource type="AudioStream" uid="uid://dndnq8kwdsiny" path="res://content/audio/player_soundPain.wav" id="6_wsgte"]
+[ext_resource type="AudioStream" uid="uid://bubfmqnt3oige" path="res://content/audio/player_soundSword.wav" id="7_b36hy"]
+[ext_resource type="AudioStream" uid="uid://dsn03502beug0" path="res://content/audio/gravel2.ogg" id="8_m65se"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m61x6"]
 atlas = ExtResource("1_egk1u")
@@ -155,6 +158,8 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.483744), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 17
 script = ExtResource("1_waxjt")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -205,3 +210,18 @@ initial_velocity_max = 450.0
 split_scale = true
 scale_curve_x = SubResource("Curve_iol8y")
 scale_curve_y = SubResource("Curve_sdn1e")
+
+[node name="SoundPain" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_wsgte")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="SoundSwordAttack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_b36hy")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="SoundWalk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_m65se")
+volume_db = -10.0
+bus = &"SFX"

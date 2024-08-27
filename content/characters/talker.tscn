@@ -91,6 +91,7 @@ size = Vector2(154, 101)
 size = Vector2(482, 142)
 
 [node name="Talker" type="Area2D"]
+collision_layer = 8
 script = ExtResource("1_qoeky")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]

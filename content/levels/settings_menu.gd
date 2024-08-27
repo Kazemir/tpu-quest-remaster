@@ -23,11 +23,9 @@ func _ready():
 	for lang in loaded_locales:
 		if lang not in sorted_locales:
 			sorted_locales.append(lang)
-	
-	print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
-	print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
-	
+
 	updateMenu()
+	updateValues()
 
 func _process(delta):
 	var newCurrentMenuElement = currentMenuElement
@@ -36,7 +34,19 @@ func _process(delta):
 	elif Input.is_action_just_pressed("move_down"):
 		newCurrentMenuElement += 1
 	elif Input.is_action_just_pressed("move_left"):
-		if currentMenuElement == 2:
+		if currentMenuElement == 0:
+			GameManager.setting_sound -= 1
+			if GameManager.setting_sound < 0:
+				GameManager.setting_sound = 0
+			GameManager.applySoundSettings()
+			updateValues()
+		elif currentMenuElement == 1:
+			GameManager.setting_music -= 1
+			if GameManager.setting_music < 0:
+				GameManager.setting_music = 0
+			GameManager.applySoundSettings()
+			updateValues()
+		elif currentMenuElement == 2:
 			var index = sorted_locales.find(TranslationServer.get_locale())
 			if index == -1:
 				push_error("sorted_locales is corrupted!")
@@ -46,9 +56,21 @@ func _process(delta):
 			else:
 				prevIndex = index - 1
 			TranslationServer.set_locale(sorted_locales[prevIndex])
-		pass
+		GameManager.saveSettings()
 	elif Input.is_action_just_pressed("move_right"):
-		if currentMenuElement == 2:
+		if currentMenuElement == 0:
+			GameManager.setting_sound += 1
+			if GameManager.setting_sound > 10:
+				GameManager.setting_sound = 10
+			GameManager.applySoundSettings()
+			updateValues()
+		elif currentMenuElement == 1:
+			GameManager.setting_music += 1
+			if GameManager.setting_music > 10:
+				GameManager.setting_music = 10
+			GameManager.applySoundSettings()
+			updateValues()
+		elif currentMenuElement == 2:
 			var index = sorted_locales.find(TranslationServer.get_locale())
 			if index == -1:
 				push_error("sorted_locales is corrupted!")
@@ -58,7 +80,7 @@ func _process(delta):
 			else:
 				prevIndex = index + 1
 			TranslationServer.set_locale(sorted_locales[prevIndex])
-		pass
+		GameManager.saveSettings()
 	
 	if newCurrentMenuElement < 0:
 		newCurrentMenuElement = menu_values.size() - 1
@@ -69,6 +91,10 @@ func _process(delta):
 		currentMenuElement = newCurrentMenuElement
 		updateMenu()
 
+func updateValues():
+	sound_value.text = _buildRangeString(GameManager.setting_sound)
+	music_value.text = _buildRangeString(GameManager.setting_music)
+
 func updateMenu():
 	var red = Color(1.0, 0.0, 0.0, 1.0)
 	var black = Color(0.0, 0.0, 0.0, 1.0)
@@ -78,21 +104,10 @@ func updateMenu():
 			red if currentMenuElement == i else black
 		)
 
-func saveSettings():
-	var config = ConfigFile.new()
-
-	config.set_value("settings", "sound", 6)
-	config.set_value("settings", "music", 9)
-	config.set_value("settings", "language", "ru")
-
-	config.save("user://config.cfg")
-
-func loadSettings():
-	var config = ConfigFile.new()
-	var err = config.load("user://config.cfg")
-	if err != OK:
-		return
-	
-	var sound = config.get_value("settings", "sound")
-	var music = config.get_value("settings", "music")
-	var language = config.get_value("settings", "language")
+func _buildRangeString(val: int) -> String:
+	var text = ""
+	for i in range(val):
+		text += "/"
+	for i in range(val, 10):
+		text += "-"
+	return text

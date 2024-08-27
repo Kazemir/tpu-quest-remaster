@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://8rri5t27wbxt"]
+[gd_scene load_steps=10 format=4 uid="uid://8rri5t27wbxt"]
 
 [ext_resource type="Texture2D" uid="uid://cb143o282cor8" path="res://content/graphics/tileset.png" id="1_r7hcf"]
-[ext_resource type="PackedScene" uid="uid://b2fkemy1mixq3" path="res://system/game_manager.tscn" id="1_stkfw"]
 [ext_resource type="Texture2D" uid="uid://d3wrhq2rsj18n" path="res://content/graphics/stickerset.png" id="2_58k5r"]
 [ext_resource type="PackedScene" uid="uid://dtw13btpgx5q2" path="res://content/characters/player.tscn" id="3_dotpk"]
+[ext_resource type="PackedScene" uid="uid://b36tbjggvho00" path="res://system/game_hud.tscn" id="5_e14hv"]
 [ext_resource type="PackedScene" uid="uid://cs82nrqoucpff" path="res://content/helpers/change_map_helper.tscn" id="5_u723c"]
-[ext_resource type="PackedScene" uid="uid://bjwtr861vjv6t" path="res://content/levels/fungus_level.tscn" id="6_5k106"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cvon4"]
 texture = ExtResource("1_r7hcf")
@@ -128,9 +127,6 @@ sources/1 = SubResource("TileSetAtlasSource_73g2k")
 
 [node name="HomeLevel" type="Node2D"]
 
-[node name="GameManager" parent="." instance=ExtResource("1_stkfw")]
-unique_name_in_owner = true
-
 [node name="BgColor" type="ColorRect" parent="."]
 z_index = -1000
 offset_left = -1040.0
@@ -153,6 +149,8 @@ position = Vector2(19, -4)
 [node name="Camera" type="Camera2D" parent="Player"]
 limit_smoothed = true
 
-[node name="DoorEnter" parent="." instance=ExtResource("5_u723c")]
+[node name="ToFungusLevel" parent="." instance=ExtResource("5_u723c")]
 position = Vector2(-380, 0)
-nextMap = ExtResource("6_5k106")
+level_name = "fungus_level"
+
+[node name="GameHud" parent="." instance=ExtResource("5_e14hv")]

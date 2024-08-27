@@ -11,10 +11,17 @@ const JUMP_VELOCITY = -700.0
 @onready var particles_jump_right = $ParticlesJumpRight
 @onready var particles_jump_left = $ParticlesJumpLeft
 
+@onready var sound_walk = $SoundWalk
+
+var is_floating = false
+
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and not is_floating:
 		velocity += get_gravity() * delta
+
+	if Input.is_action_just_pressed("developer_mode"):
+		is_floating = not is_floating
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -28,7 +35,15 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if abs(velocity.x) > 0 and is_on_floor():
+		if not sound_walk.playing:
+			sound_walk.play()
 		
+	var direction_floating = Input.get_axis("move_up", "move_down")
+	if is_floating:
+		velocity.y = direction_floating * SPEED
+	
 	if direction > 0:
 		sprite.flip_h = false
 	elif direction < 0:
@@ -45,5 +60,5 @@ func _physics_process(delta):
 			sprite.play("walk")
 	else:
 		sprite.play("jump")
-
+	
 	move_and_slide()

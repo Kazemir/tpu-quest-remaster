@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://43mv5eduelbw"]
 
 [ext_resource type="Script" path="res://content/items/potion.gd" id="1_5n6na"]
-[ext_resource type="Texture2D" uid="uid://dlpibheo7nm6q" path="res://content/graphics/items/potion_red_small.png" id="2_voyqa"]
+[ext_resource type="Texture2D" uid="uid://cqyndxf7bmku2" path="res://content/graphics/items/potion_red.png" id="2_ear46"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lrxmx"]
 radius = 8.0
@@ -46,12 +46,14 @@ _data = {
 }
 
 [node name="Potion" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_5n6na")
 type = 1
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, 10)
-texture = ExtResource("2_voyqa")
+texture = ExtResource("2_ear46")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_lrxmx")

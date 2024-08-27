@@ -1,22 +1,27 @@
+@tool
 extends Area2D
 
-@onready var enter_label = $EnterLabel
+const LEVELS_DIR = "res://content/levels/"
+const SCENE_EXT = ".tscn"
 
-@export var nextMap: PackedScene
+@onready var enter_label = $EnterLabel
+@export var level_name: String
 
 func _ready():
-	enter_label.visible = Engine.is_editor_hint()
+	if Engine.is_editor_hint():
+		enter_label.visible = true
+		enter_label.text = level_name
+	else:
+		enter_label.visible = false
 
 func _on_body_entered(body):
-	if body.name == "Player":
-		enter_label.visible = true
+	enter_label.visible = true
 
 func _on_body_exited(body):
-	if body.name == "Player":
-		enter_label.visible = false
+	enter_label.visible = false
 
 func _process(delta):
 	if Engine.is_editor_hint():
 		return
 	if Input.is_action_just_pressed("action") and enter_label.visible:
-		get_tree().change_scene_to_packed(nextMap)
+		get_tree().change_scene_to_file(LEVELS_DIR + level_name + SCENE_EXT)

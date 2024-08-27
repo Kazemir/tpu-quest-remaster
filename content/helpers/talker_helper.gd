@@ -16,4 +16,5 @@ func _on_body_exited(body):
 func _process(delta):
 	if Engine.is_editor_hint():
 		return
-	# TODO
+	#if Input.is_action_just_pressed("action") and talker_label.visible:
+	#	game_hud.add_child(load("res://content/dialogs/talker_dialog.tscn").instance())

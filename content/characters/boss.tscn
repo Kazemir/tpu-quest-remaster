@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://b8wlud0q4nruq"]
+
+[ext_resource type="Script" path="res://content/characters/boss.gd" id="1_pc6gb"]
+[ext_resource type="Texture2D" uid="uid://c3npn56vwuvme" path="res://content/graphics/characters/gremlins.png" id="2_vl14e"]
+[ext_resource type="AudioStream" uid="uid://ckrt16ekwqhi3" path="res://content/audio/enemy_pain.wav" id="3_h4lor"]
+[ext_resource type="AudioStream" uid="uid://csasvoqfb2pdc" path="res://content/audio/enemy_death.wav" id="4_5g0fn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70xn0"]
+atlas = ExtResource("2_vl14e")
+region = Rect2(0, 30, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glqt2"]
+atlas = ExtResource("2_vl14e")
+region = Rect2(0, 90, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r45uu"]
+atlas = ExtResource("2_vl14e")
+region = Rect2(30, 30, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4e10"]
+atlas = ExtResource("2_vl14e")
+region = Rect2(60, 90, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrlol"]
+atlas = ExtResource("2_vl14e")
+region = Rect2(60, 30, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icrgx"]
+atlas = ExtResource("2_vl14e")
+region = Rect2(30, 90, 30, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_da4bo"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_70xn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glqt2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r45uu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4e10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrlol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icrgx")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68vui"]
+size = Vector2(138, 128.75)
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_84k4p"]
+
+[node name="Boss" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_pc6gb")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5.96046e-08, -75)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_da4bo")
+animation = &"walk"
+autoplay = "idle"
+frame = 1
+frame_progress = 0.272154
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -64.625)
+shape = SubResource("RectangleShape2D_68vui")
+
+[node name="PainSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_h4lor")
+bus = &"SFX"
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5g0fn")
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+blackboard_plan = SubResource("BlackboardPlan_84k4p")

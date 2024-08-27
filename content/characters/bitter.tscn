@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce80f7k81y6yi"]
+[gd_scene load_steps=7 format=3 uid="uid://ce80f7k81y6yi"]
 
+[ext_resource type="Script" path="res://content/characters/bitter.gd" id="1_gdjtb"]
 [ext_resource type="Texture2D" uid="uid://c3npn56vwuvme" path="res://content/graphics/characters/gremlins.png" id="1_twl5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mk5bm"]
@@ -27,7 +28,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7e3nk"]
 size = Vector2(73, 61)
 
-[node name="Bitter" type="Area2D"]
+[node name="Bitter" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 4
+script = ExtResource("1_gdjtb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -41)

@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=4 uid="uid://ckohtm8vwl65p"]
+[gd_scene load_steps=26 format=4 uid="uid://ckohtm8vwl65p"]
 
-[ext_resource type="PackedScene" uid="uid://b2fkemy1mixq3" path="res://system/game_manager.tscn" id="1_5dsgp"]
+[ext_resource type="PackedScene" uid="uid://b36tbjggvho00" path="res://system/game_hud.tscn" id="1_qgauh"]
 [ext_resource type="Texture2D" uid="uid://cb143o282cor8" path="res://content/graphics/tileset.png" id="2_gv0tv"]
 [ext_resource type="Texture2D" uid="uid://bjc4uhqlt4lmb" path="res://content/graphics/MonsterKnifeBG.jpg" id="2_itbaa"]
 [ext_resource type="Texture2D" uid="uid://d3wrhq2rsj18n" path="res://content/graphics/stickerset.png" id="3_043gb"]
@@ -11,6 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://dl22dgm5uy3mi" path="res://content/items/weapon.tscn" id="7_rp2vs"]
 [ext_resource type="PackedScene" uid="uid://dnu04upm24n1n" path="res://content/items/sword_light.tscn" id="8_e42ty"]
 [ext_resource type="PackedScene" uid="uid://cs82nrqoucpff" path="res://content/helpers/change_map_helper.tscn" id="10_qqv6s"]
+[ext_resource type="AudioStream" uid="uid://tdqof3dtkb1p" path="res://content/audio/enemyLAV.wav" id="12_8ym6b"]
+[ext_resource type="PackedScene" uid="uid://bjy0bjfqvve8l" path="res://content/characters/enemy_lav.tscn" id="13_bpq2o"]
+[ext_resource type="PackedScene" uid="uid://7tb3t6owcfx2" path="res://content/characters/enemy_sereja.tscn" id="14_lfo6v"]
+[ext_resource type="PackedScene" uid="uid://qte2m1prdpps" path="res://content/characters/enemy_misha.tscn" id="15_o25d6"]
+[ext_resource type="PackedScene" uid="uid://bjsopsup25bxy" path="res://content/characters/enemy_vova.tscn" id="16_mswmh"]
+[ext_resource type="PackedScene" uid="uid://bnswe1uu6bbso" path="res://content/characters/enemy_vetal.tscn" id="17_rd3nb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xiqw8"]
 texture = ExtResource("2_gv0tv")
@@ -158,8 +164,7 @@ sources/0 = SubResource("TileSetScenesCollectionSource_8aeut")
 
 [node name="LavLevel" type="Node2D"]
 
-[node name="GameManager" parent="." instance=ExtResource("1_5dsgp")]
-unique_name_in_owner = true
+[node name="GameHud" parent="." instance=ExtResource("1_qgauh")]
 
 [node name="Parallax" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.01, 0.01)
@@ -190,5 +195,27 @@ position = Vector2(19, -4)
 [node name="Camera" type="Camera2D" parent="Player"]
 limit_smoothed = true
 
-[node name="ChangeMapHelper" parent="." instance=ExtResource("10_qqv6s")]
+[node name="ToFungusLevel" parent="." instance=ExtResource("10_qqv6s")]
 position = Vector2(-980, -40)
+level_name = "fungus_level"
+
+[node name="EnemyLAV" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_8ym6b")
+volume_db = -10.0
+autoplay = true
+bus = &"SFX"
+
+[node name="EnemyLav" parent="." instance=ExtResource("13_bpq2o")]
+position = Vector2(-561, 0)
+
+[node name="EnemySereja" parent="." instance=ExtResource("14_lfo6v")]
+position = Vector2(-262, 0)
+
+[node name="EnemyMisha" parent="." instance=ExtResource("15_o25d6")]
+position = Vector2(-313, 0)
+
+[node name="EnemyVova" parent="." instance=ExtResource("16_mswmh")]
+position = Vector2(-381, 0)
+
+[node name="EnemyVetal" parent="." instance=ExtResource("17_rd3nb")]
+position = Vector2(-348, 0)

@@ -17,12 +17,13 @@ extends Node2D
 @onready var high_score_menu = preload("res://content/levels/high_score_menu.tscn") as PackedScene
 @onready var settings_menu = preload("res://content/levels/settings_menu.tscn") as PackedScene
 
-var currentMenuElement = 0
+@onready var exit_confirm_dialog = preload("res://content/dialogs/exit_confirm_dialog.tscn") as PackedScene
 
-var currentChildMenu = null
+var currentMenuElement: int = 0
+var currentChildMenu: Node = null
 
 func _ready():
-	TranslationServer.set_locale("ru")
+	GameManager.is_in_main_menu = true
 	updateMenu()
 
 func _process(delta):
@@ -33,13 +34,16 @@ func _process(delta):
 			currentChildMenu = null
 			main_menu_container.visible = true
 		else:
-			get_tree().quit()
+			handleExit()
 	if Input.is_action_just_pressed("move_up") and currentChildMenu == null:
 		newCurrentMenuElement -= 1
 	if Input.is_action_just_pressed("move_down") and currentChildMenu == null:
 		newCurrentMenuElement += 1
-	if Input.is_action_just_pressed("action") and currentChildMenu == null:
-		handleAction()
+	if Input.is_action_just_pressed("action"):
+		if currentChildMenu == null:
+			handleAction()
+		elif currentChildMenu.name == "ExitConfirmDialog":
+			get_tree().quit()
 	
 	if newCurrentMenuElement < 0:
 		newCurrentMenuElement = menu_labels.size() - 1
@@ -62,20 +66,27 @@ func updateMenu():
 func handleAction():
 	match menu_labels[currentMenuElement]:
 		new_game_label:
+			GameManager.is_in_main_menu = false
+			GameManager.is_in_game = true
+			GameManager.resetPlayer()
 			get_tree().change_scene_to_packed(start_level)
 		continue_label:
+			GameManager.is_in_main_menu = false
+			GameManager.is_in_game = true
 			get_tree().change_scene_to_packed(start_level)
 		settings_label:
-			currentChildMenu = settings_menu.instantiate()
-			canvas_layer.add_child(currentChildMenu)
-			main_menu_container.visible = false
+			switchToSubMenu(settings_menu)
 		high_scores_label:
-			currentChildMenu = high_score_menu.instantiate()
-			canvas_layer.add_child(currentChildMenu)
-			main_menu_container.visible = false
+			switchToSubMenu(high_score_menu)
 		authors_label:
-			currentChildMenu = authors_menu.instantiate()
-			canvas_layer.add_child(currentChildMenu)
-			main_menu_container.visible = false
+			switchToSubMenu(authors_menu)
 		exit_label:
-			get_tree().quit()
+			handleExit()
+
+func handleExit():
+	switchToSubMenu(exit_confirm_dialog)
+
+func switchToSubMenu(scene: PackedScene):
+	currentChildMenu = scene.instantiate()
+	canvas_layer.add_child(currentChildMenu)
+	main_menu_container.visible = false

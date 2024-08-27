@@ -1,8 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://cigp54esaxycb"]
+[gd_scene load_steps=7 format=3 uid="uid://cigp54esaxycb"]
 
+[ext_resource type="Script" path="res://content/levels/game_over_screen.gd" id="1_25qbd"]
 [ext_resource type="Texture2D" uid="uid://de7ofdpgdmwbb" path="res://content/graphics/gameOver.png" id="1_egesn"]
+[ext_resource type="AudioStream" uid="uid://cp251kset1qe" path="res://content/audio/gameOver.wav" id="3_gqc10"]
+
+[sub_resource type="Animation" id="Animation_6jl0f"]
+resource_name = "launch"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.141176, 0.141176, 0.141176, 1), Color(0.141176, 0.141176, 0.141176, 0), Color(0.141176, 0.141176, 0.141176, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4eio1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.141176, 0.141176, 0.141176, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y50fp"]
+_data = {
+"RESET": SubResource("Animation_4eio1"),
+"launch": SubResource("Animation_6jl0f")
+}
 
 [node name="GameOverScreen" type="Node2D"]
+script = ExtResource("1_25qbd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -10,3 +50,19 @@
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_egesn")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 801.0
+offset_bottom = 601.0
+color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gqc10")
+bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y50fp")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

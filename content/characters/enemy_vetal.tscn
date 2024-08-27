@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnswe1uu6bbso"]
+
+[ext_resource type="Texture2D" uid="uid://cpmmbjc2b85tj" path="res://content/graphics/characters/droz.png" id="1_815ek"]
+[ext_resource type="AudioStream" uid="uid://bm4xbsyderrfe" path="res://content/audio/LAV_Droz.wav" id="2_x32rx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68vui"]
+size = Vector2(21, 78)
+
+[node name="EnemyVetal" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, -40)
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("1_815ek")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -39)
+shape = SubResource("RectangleShape2D_68vui")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_x32rx")

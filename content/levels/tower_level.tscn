@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://dl6q78k0fx2lf"]
+[gd_scene load_steps=10 format=4 uid="uid://dl6q78k0fx2lf"]
 
-[ext_resource type="PackedScene" uid="uid://b2fkemy1mixq3" path="res://system/game_manager.tscn" id="1_yqyh1"]
 [ext_resource type="Texture2D" uid="uid://cb143o282cor8" path="res://content/graphics/tileset.png" id="2_jhtb8"]
 [ext_resource type="Texture2D" uid="uid://d3wrhq2rsj18n" path="res://content/graphics/stickerset.png" id="3_pikbs"]
 [ext_resource type="PackedScene" uid="uid://dtw13btpgx5q2" path="res://content/characters/player.tscn" id="4_c557b"]
+[ext_resource type="PackedScene" uid="uid://b36tbjggvho00" path="res://system/game_hud.tscn" id="5_1pdm2"]
+[ext_resource type="PackedScene" uid="uid://b8wlud0q4nruq" path="res://content/characters/boss.tscn" id="5_2wjoj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g81ih"]
 texture = ExtResource("2_jhtb8")
@@ -126,9 +127,6 @@ sources/1 = SubResource("TileSetAtlasSource_b3a7w")
 
 [node name="TowerLevel" type="Node2D"]
 
-[node name="GameManager" parent="." instance=ExtResource("1_yqyh1")]
-unique_name_in_owner = true
-
 [node name="BgColor" type="ColorRect" parent="."]
 z_index = -1000
 offset_left = -493.0
@@ -150,3 +148,8 @@ position = Vector2(60, -3)
 
 [node name="Camera" type="Camera2D" parent="Player"]
 limit_smoothed = true
+
+[node name="Boss" parent="." instance=ExtResource("5_2wjoj")]
+position = Vector2(505, 39)
+
+[node name="GameHud" parent="." instance=ExtResource("5_1pdm2")]

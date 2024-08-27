@@ -1,3 +1,4 @@
+@tool
 extends Area2D
 
 enum Type { PotionSmall, Potion, Heart }
@@ -23,6 +24,8 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_body_entered(body):
-	pass
+	if GameManager.isHealthMaxed():
+		return
+	GameManager.addHealth(amount)
+	queue_free()

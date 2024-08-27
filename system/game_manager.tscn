@@ -1,6 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2fkemy1mixq3"]
+[gd_scene load_steps=8 format=3 uid="uid://b2fkemy1mixq3"]
 
 [ext_resource type="Script" path="res://system/game_manager.gd" id="1_g2fxb"]
+[ext_resource type="AudioStream" uid="uid://boxm5vpmxoook" path="res://content/music/KineticLaw_HardcoreMode.mp3" id="2_n41ct"]
+[ext_resource type="AudioStream" uid="uid://c6wbex0bs3u2r" path="res://content/music/MightandMagic_Book1__ShopTheme.mp3" id="3_li1gy"]
+[ext_resource type="AudioStream" uid="uid://dv6pcviplrq8e" path="res://content/music/Factor6_Gianna.mp3" id="4_r371t"]
+[ext_resource type="AudioStream" uid="uid://dppml38kugrfw" path="res://content/audio/player_soundMoney.wav" id="5_np11m"]
+[ext_resource type="AudioStream" uid="uid://cvt6r5bbvlleu" path="res://content/audio/player_soundPotion.wav" id="6_i7ba2"]
+[ext_resource type="AudioStream" uid="uid://bubfmqnt3oige" path="res://content/audio/player_soundSword.wav" id="7_5q6qu"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_g2fxb")
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_n41ct")
+bus = &"Music"
+
+[node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_li1gy")
+bus = &"Music"
+
+[node name="WinMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_r371t")
+bus = &"Music"
+
+[node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_np11m")
+bus = &"SFX"
+
+[node name="PotionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_i7ba2")
+bus = &"SFX"
+
+[node name="WeaponSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_5q6qu")
+bus = &"SFX"
+
+[node name="CoinQueueProcessor" type="Timer" parent="."]
+wait_time = 0.125
+autostart = true
+
+[connection signal="timeout" from="CoinQueueProcessor" to="." method="_on_coin_queue_processor_timeout"]

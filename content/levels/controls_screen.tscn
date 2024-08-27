@@ -1,8 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://fk0ua0ms8jb3"]
+[gd_scene load_steps=6 format=3 uid="uid://fk0ua0ms8jb3"]
 
+[ext_resource type="Script" path="res://content/levels/controls_screen.gd" id="1_bq43s"]
 [ext_resource type="Texture2D" uid="uid://vtv6o0xt8ips" path="res://content/graphics/controls.jpg" id="1_obmhd"]
 
+[sub_resource type="Animation" id="Animation_fk3w4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.141176, 0.141176, 0.141176, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0lsbw"]
+resource_name = "launch"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.141176, 0.141176, 0.141176, 1), Color(0.141176, 0.141176, 0.141176, 0), Color(0.141176, 0.141176, 0.141176, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_645gm"]
+_data = {
+"RESET": SubResource("Animation_fk3w4"),
+"launch": SubResource("Animation_0lsbw")
+}
+
 [node name="ControlsScreen" type="Node2D"]
+script = ExtResource("1_bq43s")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -10,3 +49,16 @@
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_obmhd")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 801.0
+offset_bottom = 601.0
+color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CanvasLayer")
+libraries = {
+"": SubResource("AnimationLibrary_645gm")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

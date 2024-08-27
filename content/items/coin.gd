@@ -1,3 +1,4 @@
+@tool
 extends Area2D
 
 enum Type { Coin, Gold, GoldenBar }
@@ -24,4 +25,5 @@ func _process(delta):
 	pass
 
 func _on_body_entered(body):
-	pass
+	GameManager.addMoney(amount)
+	queue_free()

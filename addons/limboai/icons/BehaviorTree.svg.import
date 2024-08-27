@@ -2,16 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjdf3vn85wifp"
-path="res://.godot/imported/player.png-1a36d22fa23765bea8dd5a97835fb3a0.ctex"
+uid="uid://bqt4i16i4853l"
+path="res://.godot/imported/BehaviorTree.svg-9b40a8b5e1feb368d9f11b0fb1785cca.ctex"
 metadata={
+"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/graphics/characters/player.png"
-dest_files=["res://.godot/imported/player.png-1a36d22fa23765bea8dd5a97835fb3a0.ctex"]
+source_file="res://addons/limboai/icons/BehaviorTree.svg"
+dest_files=["res://.godot/imported/BehaviorTree.svg-9b40a8b5e1feb368d9f11b0fb1785cca.ctex"]
 
 [params]
 
@@ -32,3 +33,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=true
+editor/convert_colors_with_editor_theme=true

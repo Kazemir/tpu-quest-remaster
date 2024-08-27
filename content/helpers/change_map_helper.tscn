@@ -7,6 +7,8 @@
 size = Vector2(55, 81)
 
 [node name="ChangeMapHelper" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
 script = ExtResource("1_clsgh")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]

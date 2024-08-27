@@ -1,3 +1,4 @@
+@tool
 extends Area2D
 
 enum Type { Sword, SwordLight }
@@ -20,3 +21,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_body_entered(body):
+	match type:
+		Type.Sword:
+			GameManager.addWeapon(GameManager.WeaponType.Sword)
+		Type.SwordLight:
+			GameManager.addWeapon(GameManager.WeaponType.SwordLight)
+	queue_free()
