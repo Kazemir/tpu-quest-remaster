@@ -13,7 +13,7 @@ func _on_body_exited(body):
 	if body.name == "Player":
 		trade_label.visible = false
 
-func _process(delta):
+func _process(_delta):
 	if Engine.is_editor_hint():
 		return
 	# TODO

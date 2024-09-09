@@ -23,7 +23,6 @@ offset_bottom = -77.0
 theme = ExtResource("1_lwr74")
 theme_type_variation = &"ActionLabel"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "gameHelp_enter"
 horizontal_alignment = 1
 
 [connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]

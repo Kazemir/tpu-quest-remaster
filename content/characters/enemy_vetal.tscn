@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68vui"]
 size = Vector2(21, 78)
 
-[node name="EnemyVetal" type="CharacterBody2D" groups=["Enemy"]]
+[node name="EnemyVetal" type="CharacterBody2D" groups=["Enemy", "Saveable"]]
 collision_layer = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

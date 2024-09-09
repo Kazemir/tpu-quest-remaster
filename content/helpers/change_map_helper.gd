@@ -13,15 +13,16 @@ func _ready():
 		enter_label.text = level_name
 	else:
 		enter_label.visible = false
+		enter_label.text = "gameHelp_enter"
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	enter_label.visible = true
 
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	enter_label.visible = false
 
-func _process(delta):
+func _process(_delta):
 	if Engine.is_editor_hint():
 		return
 	if Input.is_action_just_pressed("action") and enter_label.visible:
-		get_tree().change_scene_to_file(LEVELS_DIR + level_name + SCENE_EXT)
+		NavigationManager.go_to_level(level_name)

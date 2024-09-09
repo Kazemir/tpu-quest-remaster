@@ -90,7 +90,7 @@ size = Vector2(154, 101)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y75dl"]
 size = Vector2(482, 142)
 
-[node name="Talker" type="Area2D"]
+[node name="Talker" type="Area2D" groups=["Neutral"]]
 collision_layer = 8
 script = ExtResource("1_qoeky")
 

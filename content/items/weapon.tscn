@@ -44,7 +44,7 @@ _data = {
 "floating": SubResource("Animation_37x2c")
 }
 
-[node name="Weapon" type="Area2D"]
+[node name="Weapon" type="Area2D" groups=["Saveable"]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_3io50")

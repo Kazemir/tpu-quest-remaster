@@ -13,7 +13,7 @@ func _on_body_exited(body):
 	if body.name == "Player":
 		talker_label.visible = false
 
-func _process(delta):
+func _process(_delta):
 	if Engine.is_editor_hint():
 		return
 	#if Input.is_action_just_pressed("action") and talker_label.visible:

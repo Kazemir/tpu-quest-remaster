@@ -4,6 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://de7ofdpgdmwbb" path="res://content/graphics/gameOver.png" id="1_egesn"]
 [ext_resource type="AudioStream" uid="uid://cp251kset1qe" path="res://content/audio/gameOver.wav" id="3_gqc10"]
 
+[sub_resource type="Animation" id="Animation_4eio1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.141176, 0.141176, 0.141176, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_6jl0f"]
 resource_name = "launch"
 length = 6.0
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0.141176, 0.141176, 0.141176, 1), Color(0.141176, 0.141176, 0.141176, 0), Color(0.141176, 0.141176, 0.141176, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_4eio1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.141176, 0.141176, 0.141176, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y50fp"]

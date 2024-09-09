@@ -23,38 +23,48 @@ layout_mode = 2
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 50
 
-[node name="HFlowContainer" type="HFlowContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
-alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/HFlowContainer"]
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 columns = 2
 
-[node name="HealthIcon" type="TextureRect" parent="PanelContainer/MarginContainer/HFlowContainer/GridContainer"]
+[node name="HealthIcon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("2_3p2xh")
 
-[node name="HealthValue" type="Label" parent="PanelContainer/MarginContainer/HFlowContainer/GridContainer"]
+[node name="HealthValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 text = "100"
+horizontal_alignment = 2
 
-[node name="CoinsIcon" type="TextureRect" parent="PanelContainer/MarginContainer/HFlowContainer/GridContainer"]
+[node name="CoinsIcon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("3_7vv1f")
 
-[node name="CoinsValue" type="Label" parent="PanelContainer/MarginContainer/HFlowContainer/GridContainer"]
+[node name="CoinsValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 text = "000
 "
+horizontal_alignment = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HFlowContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/margin_top = 10
 
-[node name="WeaponIcon" type="TextureRect" parent="PanelContainer/MarginContainer/HFlowContainer/MarginContainer"]
+[node name="WeaponIcon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("4_svfr0")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[connection signal="ready" from="." to="." method="_on_ready"]

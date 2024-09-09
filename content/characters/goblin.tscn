@@ -66,7 +66,7 @@ size = Vector2(75.5, 73.5)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_84k4p"]
 
-[node name="Goblin" type="CharacterBody2D"]
+[node name="Goblin" type="CharacterBody2D" groups=["Enemy", "Saveable"]]
 collision_layer = 4
 script = ExtResource("1_d81us")
 

@@ -45,7 +45,7 @@ _data = {
 "floating": SubResource("Animation_r4mlt")
 }
 
-[node name="Potion" type="Area2D"]
+[node name="Potion" type="Area2D" groups=["Saveable"]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_5n6na")

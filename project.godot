@@ -18,6 +18,9 @@ config/icon="res://ico.png"
 [autoload]
 
 GameManager="*res://system/game_manager.tscn"
+GameSaver="*res://system/game_saver.tscn"
+TransitionManager="*res://system/transition_manager.tscn"
+NavigationManager="*res://system/navigation_manager.gd"
 
 [display]
 
@@ -32,6 +35,7 @@ window/stretch/mode="canvas_items"
 Player=""
 Enemy=""
 Neutral=""
+Saveable=""
 
 [input]
 

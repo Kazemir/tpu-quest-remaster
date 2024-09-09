@@ -44,7 +44,7 @@ _data = {
 "floating": SubResource("Animation_3ayqj")
 }
 
-[node name="Coin" type="Area2D"]
+[node name="Coin" type="Area2D" groups=["Saveable"]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_2w45r")

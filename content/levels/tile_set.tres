@@ -1,0 +1,74 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://uk3bf85i3ky3"]
+
+[ext_resource type="Texture2D" uid="uid://cb143o282cor8" path="res://content/graphics/tileset.png" id="1_boped"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xiqw8"]
+texture = ExtResource("1_boped")
+texture_region_size = Vector2i(40, 40)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+4:1/0/custom_data_0 = "grass"
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+5:1/0/custom_data_0 = "grass"
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+6:1/0/custom_data_0 = "gravel"
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+7:1/0/custom_data_0 = "stone"
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+8:1/0/custom_data_0 = "stone"
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+9:1/0/custom_data_0 = "stone"
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+0:2/0/custom_data_0 = "stone"
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+5:2/0/custom_data_0 = "wood"
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+6:2/0/custom_data_0 = "wood"
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+7:2/0/custom_data_0 = "wood"
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+8:2/0/custom_data_0 = "wood"
+9:2/0 = 0
+9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+9:2/0/custom_data_0 = "wood"
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+
+[resource]
+tile_size = Vector2i(40, 40)
+physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "walk_sound"
+custom_data_layer_0/type = 4
+sources/2 = SubResource("TileSetAtlasSource_xiqw8")

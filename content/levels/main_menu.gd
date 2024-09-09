@@ -23,10 +23,10 @@ var currentMenuElement: int = 0
 var currentChildMenu: Node = null
 
 func _ready():
-	GameManager.is_in_main_menu = true
+	GameManager.go_to_main_menu()
 	updateMenu()
 
-func _process(delta):
+func _process(_delta):
 	var newCurrentMenuElement = currentMenuElement
 	if Input.is_action_just_pressed("escape"):
 		if currentChildMenu != null:
@@ -66,14 +66,15 @@ func updateMenu():
 func handleAction():
 	match menu_labels[currentMenuElement]:
 		new_game_label:
-			GameManager.is_in_main_menu = false
-			GameManager.is_in_game = true
+			GameManager.go_to_game()
 			GameManager.resetPlayer()
 			get_tree().change_scene_to_packed(start_level)
 		continue_label:
-			GameManager.is_in_main_menu = false
-			GameManager.is_in_game = true
-			get_tree().change_scene_to_packed(start_level)
+			GameManager.go_to_game()
+			if GameSaver.is_game_saved():
+				GameSaver.load_game()
+			else:
+				get_tree().change_scene_to_packed(start_level)
 		settings_label:
 			switchToSubMenu(settings_menu)
 		high_scores_label:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dtw13btpgx5q2"]
+[gd_scene load_steps=31 format=3 uid="uid://dtw13btpgx5q2"]
 
 [ext_resource type="Texture2D" uid="uid://6ipdm8h6yhfp" path="res://content/graphics/characters/character.png" id="1_egk1u"]
 [ext_resource type="Script" path="res://content/characters/player.gd" id="1_waxjt"]
@@ -145,19 +145,23 @@ height = 74.0
 atlas = ExtResource("5_0i8tl")
 region = Rect2(20, 0, 10, 10)
 
+[sub_resource type="Curve" id="Curve_0rvsl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.502028), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_foeg7"]
+offsets = PackedFloat32Array(0.294671, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_r6a8v"]
 atlas = ExtResource("5_0i8tl")
 region = Rect2(20, 0, 10, 10)
 
-[sub_resource type="Curve" id="Curve_iol8y"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.489782), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_ak0nt"]
+_data = [Vector2(0, 0.994141), 0.0, 0.0, 0, 0, Vector2(1, 0.285264), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_sdn1e"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.483744), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("1_waxjt")
@@ -194,6 +198,8 @@ spread = 25.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 350.0
 initial_velocity_max = 450.0
+scale_amount_curve = SubResource("Curve_0rvsl")
+color_ramp = SubResource("Gradient_foeg7")
 
 [node name="ParticlesJumpLeft" type="CPUParticles2D" parent="."]
 emitting = false
@@ -207,9 +213,8 @@ spread = 25.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 350.0
 initial_velocity_max = 450.0
-split_scale = true
-scale_curve_x = SubResource("Curve_iol8y")
-scale_curve_y = SubResource("Curve_sdn1e")
+scale_amount_curve = SubResource("Curve_ak0nt")
+color_ramp = SubResource("Gradient_foeg7")
 
 [node name="SoundPain" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_wsgte")
@@ -225,3 +230,5 @@ bus = &"SFX"
 stream = ExtResource("8_m65se")
 volume_db = -10.0
 bus = &"SFX"
+
+[connection signal="draw" from="." to="." method="_on_draw"]

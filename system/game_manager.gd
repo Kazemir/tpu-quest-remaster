@@ -1,14 +1,14 @@
 extends Node
 
-@onready var menu_music = $MenuMusic
-@onready var game_music = $GameMusic
-@onready var win_music = $WinMusic
+@onready var menu_music: AudioStreamPlayer2D = $MenuMusic
+@onready var game_music: AudioStreamPlayer2D = $GameMusic
+@onready var win_music: AudioStreamPlayer2D = $WinMusic
 
-@onready var coin_sound = $CoinSound
-@onready var potion_sound = $PotionSound
-@onready var weapon_sound = $WeaponSound
+@onready var coin_sound: AudioStreamPlayer2D = $CoinSound
+@onready var potion_sound: AudioStreamPlayer2D = $PotionSound
+@onready var weapon_sound: AudioStreamPlayer2D = $WeaponSound
 
-@onready var coin_queue_processor = $CoinQueueProcessor
+@onready var coin_queue_processor: Timer = $CoinQueueProcessor
 
 var is_in_dev_mode = true
 
@@ -31,16 +31,30 @@ signal money_changed
 func _ready():
 	_loadSettings()
 	menu_music.play()
-	pass
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("escape"):
 		if not is_in_main_menu:
+			GameSaver.save_game()
 			get_tree().change_scene_to_file("res://content/levels/main_menu.tscn")
 		elif is_in_game and not is_in_dialog_menu:
 			pass # TODO show compact menu
 	if is_in_dev_mode and Input.is_action_pressed("restart_level"):
 		get_tree().reload_current_scene()
+
+func go_to_game():
+	is_in_main_menu = false
+	is_in_game = true
+	menu_music.stop()
+	if not game_music.playing:
+		game_music.play()
+
+func go_to_main_menu():
+	is_in_main_menu = true
+	is_in_game = false
+	game_music.stop()
+	if not menu_music.playing:
+		menu_music.play()
 
 func resetPlayer():
 	player_health = MAX_HEALTH
@@ -108,5 +122,7 @@ func _on_coin_queue_processor_timeout():
 	if player_money_queue == 0:
 		return
 	_setMoney(player_money + 1)
+	if coin_sound.playing:
+		coin_sound.stop()
 	coin_sound.play()
 	player_money_queue -= 1

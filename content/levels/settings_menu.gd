@@ -27,7 +27,7 @@ func _ready():
 	updateMenu()
 	updateValues()
 
-func _process(delta):
+func _process(_delta):
 	var newCurrentMenuElement = currentMenuElement
 	if Input.is_action_just_pressed("move_up"):
 		newCurrentMenuElement -= 1

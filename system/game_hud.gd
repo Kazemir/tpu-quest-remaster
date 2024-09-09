@@ -4,9 +4,15 @@ extends CanvasLayer
 @onready var coins_value = %CoinsValue
 @onready var weapon_icon = %WeaponIcon
 
-func _process(delta):
-	health_value.text = str(GameManager.player_health)
-	coins_value.text = str(GameManager.player_money)
+func _on_ready():
+	updateHud()
+
+func _process(_delta):
+	updateHud()
+
+func updateHud():
+	health_value.text = "%03d" % GameManager.player_health
+	coins_value.text = "%03d" % GameManager.player_money
 	
 	match GameManager.player_weapon:
 		GameManager.WeaponType.None:

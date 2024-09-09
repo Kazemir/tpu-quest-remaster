@@ -65,7 +65,7 @@ size = Vector2(138, 128.75)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_84k4p"]
 
-[node name="Boss" type="CharacterBody2D"]
+[node name="Boss" type="CharacterBody2D" groups=["Enemy", "Saveable"]]
 collision_layer = 4
 script = ExtResource("1_pc6gb")
 

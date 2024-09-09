@@ -28,7 +28,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7e3nk"]
 size = Vector2(73, 61)
 
-[node name="Bitter" type="CharacterBody2D" groups=["Enemy"]]
+[node name="Bitter" type="CharacterBody2D" groups=["Enemy", "Saveable"]]
 collision_layer = 4
 script = ExtResource("1_gdjtb")
 

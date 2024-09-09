@@ -1,4 +1,5 @@
 @tool
+class_name Weapon
 extends Area2D
 
 enum Type { Sword, SwordLight }
@@ -16,17 +17,27 @@ func _ready():
 		Type.SwordLight:
 			damage = 100
 			sprite.texture = preload("res://content/graphics/items/sword_light.png")
-		
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	match type:
 		Type.Sword:
 			GameManager.addWeapon(GameManager.WeaponType.Sword)
 		Type.SwordLight:
 			GameManager.addWeapon(GameManager.WeaponType.SwordLight)
 	queue_free()
+
+func on_before_load_game():
+	get_parent().remove_child(self)
+	queue_free()
+
+func on_load_game(data: SavedData):
+	global_position = data.position
+	if data is SavedWeaponData:
+		type = data.type
+	
+func on_save_game(saved_data: Array[SavedData]):
+	var data = SavedWeaponData.new()
+	data.scene_path = scene_file_path
+	data.position = global_position
+	data.type = type
+	saved_data.append(data)
