@@ -9,7 +9,7 @@ const SOUND_CHECK_V_PADDING = 5.0
 @export var ground_tiles: TileMapLayer = null
 @export var draw_debug: bool = false
 
-@onready var sprite = $Sprite
+@onready var sprite: AnimatedSprite2D = $Sprite
 
 @onready var sound_jump_start = $SoundJumpStart
 @onready var sound_jump_stop = $SoundJumpStop
@@ -22,7 +22,8 @@ const SOUND_CHECK_V_PADDING = 5.0
 var is_floating = false
 
 func _physics_process(delta):
-	if TransitionManager.is_in_transition:
+	if GameManager.is_game_paused:
+		sprite.stop()
 		return
 	if not is_on_floor() and not is_floating:
 		velocity += get_gravity() * delta

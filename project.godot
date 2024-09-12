@@ -21,6 +21,7 @@ GameManager="*res://system/game_manager.tscn"
 GameSaver="*res://system/game_saver.tscn"
 TransitionManager="*res://system/transition_manager.tscn"
 NavigationManager="*res://system/navigation_manager.gd"
+DialogManager="*res://system/dialog_manager.tscn"
 
 [display]
 
@@ -93,7 +94,7 @@ developer_mode={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://content/localization/localization.by.translation", "res://content/localization/localization.cz.translation", "res://content/localization/localization.de.translation", "res://content/localization/localization.en.translation", "res://content/localization/localization.es.translation", "res://content/localization/localization.fr.translation", "res://content/localization/localization.it.translation", "res://content/localization/localization.pt.translation", "res://content/localization/localization.ru.translation", "res://content/localization/localization.ua.translation", "res://content/localization/localization.gag.translation")
+locale/translations=PackedStringArray("res://content/localization/localization.by.translation", "res://content/localization/localization.cz.translation", "res://content/localization/localization.de.translation", "res://content/localization/localization.en.translation", "res://content/localization/localization.es.translation", "res://content/localization/localization.fr.translation", "res://content/localization/localization.it.translation", "res://content/localization/localization.pt.translation", "res://content/localization/localization.ru.translation", "res://content/localization/localization.ua.translation", "res://content/localization/localization.gag.translation", "res://content/localization/dialog.en.translation", "res://content/localization/dialog.ru.translation")
 
 [physics]
 

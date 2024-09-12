@@ -10,7 +10,11 @@ extends Node
 
 @onready var coin_queue_processor: Timer = $CoinQueueProcessor
 
+var ingame_menu_dialog: PackedScene = preload("res://content/dialogs/ingame_menu_dialog.tscn") as PackedScene
+
 var is_in_dev_mode = true
+
+var is_game_paused = false
 
 var is_in_main_menu = false
 var is_in_dialog_menu = false
@@ -34,11 +38,8 @@ func _ready():
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("escape"):
-		if not is_in_main_menu:
-			GameSaver.save_game()
-			get_tree().change_scene_to_file("res://content/levels/main_menu.tscn")
-		elif is_in_game and not is_in_dialog_menu:
-			pass # TODO show compact menu
+		if is_in_game and not is_in_dialog_menu:
+			DialogManager.show_dialog(ingame_menu_dialog.instantiate())
 	if is_in_dev_mode and Input.is_action_pressed("restart_level"):
 		get_tree().reload_current_scene()
 

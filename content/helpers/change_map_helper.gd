@@ -22,7 +22,7 @@ func _on_body_exited(_body):
 	enter_label.visible = false
 
 func _process(_delta):
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() or GameManager.is_game_paused:
 		return
 	if Input.is_action_just_pressed("action") and enter_label.visible:
 		NavigationManager.go_to_level(level_name)

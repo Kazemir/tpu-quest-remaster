@@ -6,9 +6,9 @@ func _ready():
 	animation_player.play("launch")
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("action"):
+	if Input.is_action_just_pressed("action") or Input.is_action_just_pressed("escape"):
 		_go_to_main_menu()
-		
+
 func _on_animation_player_animation_finished(_anim_name):
 	_go_to_main_menu()
 

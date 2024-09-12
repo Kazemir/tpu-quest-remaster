@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cgfwdasgyatrk"]
+[gd_scene load_steps=16 format=3 uid="uid://cgfwdasgyatrk"]
 
 [ext_resource type="Script" path="res://content/characters/talker.gd" id="1_qoeky"]
 [ext_resource type="Texture2D" uid="uid://d2xtn8m3n1475" path="res://content/graphics/characters/wily.png" id="1_vygpi"]
@@ -11,25 +11,25 @@ region = Rect2(165, 90, 55, 45)
 atlas = ExtResource("1_vygpi")
 region = Rect2(220, 90, 55, 45)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_icpjv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxstt"]
+atlas = ExtResource("1_vygpi")
+region = Rect2(55, 90, 55, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81v0f"]
 atlas = ExtResource("1_vygpi")
 region = Rect2(0, 45, 55, 45)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1suyl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnlgv"]
 atlas = ExtResource("1_vygpi")
 region = Rect2(110, 45, 55, 45)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_20ouj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbnpm"]
 atlas = ExtResource("1_vygpi")
 region = Rect2(220, 45, 55, 45)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ridw4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd3hd"]
 atlas = ExtResource("1_vygpi")
 region = Rect2(275, 45, 55, 45)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4nr51"]
-atlas = ExtResource("1_vygpi")
-region = Rect2(55, 90, 55, 45)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvsvl"]
 atlas = ExtResource("1_vygpi")
@@ -53,22 +53,22 @@ animations = [{
 "speed": 2.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_icpjv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1suyl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_20ouj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ridw4")
-}, {
 "duration": 4.0,
-"texture": SubResource("AtlasTexture_4nr51")
+"texture": SubResource("AtlasTexture_kxstt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81v0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnlgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbnpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jd3hd")
 }],
-"loop": true,
+"loop": false,
 "name": &"point",
 "speed": 5.0
 }, {
@@ -85,12 +85,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqawi"]
-size = Vector2(154, 101)
+size = Vector2(120, 101)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y75dl"]
-size = Vector2(482, 142)
+size = Vector2(480, 142)
 
-[node name="Talker" type="Area2D" groups=["Neutral"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvvnb"]
+size = Vector2(58, 80)
+
+[node name="Talker" type="StaticBody2D" groups=["Neutral"]]
 collision_layer = 8
 script = ExtResource("1_qoeky")
 
@@ -98,15 +101,31 @@ script = ExtResource("1_qoeky")
 position = Vector2(0, -41)
 scale = Vector2(1.8, 1.8)
 sprite_frames = SubResource("SpriteFrames_e6lcb")
-animation = &"speak"
+animation = &"point"
 autoplay = "idle"
-frame_progress = 0.482298
 
-[node name="TalkArea" type="CollisionShape2D" parent="."]
+[node name="TalkArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="TalkCollision" type="CollisionShape2D" parent="TalkArea"]
 position = Vector2(0, -50.5)
 shape = SubResource("RectangleShape2D_yqawi")
 
-[node name="PointArea" type="CollisionShape2D" parent="."]
+[node name="PointArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="PointCollision" type="CollisionShape2D" parent="PointArea"]
 position = Vector2(0, -71)
 shape = SubResource("RectangleShape2D_y75dl")
 debug_color = Color(0.511717, 0.440789, 0.955912, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_jvvnb")
+
+[connection signal="body_entered" from="TalkArea" to="." method="_on_talk_area_body_entered"]
+[connection signal="body_exited" from="TalkArea" to="." method="_on_talk_area_body_exited"]
+[connection signal="body_entered" from="PointArea" to="." method="_on_point_area_body_entered"]
+[connection signal="body_exited" from="PointArea" to="." method="_on_point_area_body_exited"]

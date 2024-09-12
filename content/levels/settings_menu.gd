@@ -1,9 +1,5 @@
 extends Control
 
-@onready var sound_label = $MarginContainer/GridContainer/MarginContainer/GridContainer/SoundLabel
-@onready var music_label = $MarginContainer/GridContainer/MarginContainer/GridContainer/MusicLabel
-@onready var langue_label = $MarginContainer/GridContainer/MarginContainer/GridContainer/LangueLabel
-
 @onready var sound_value = $MarginContainer/GridContainer/MarginContainer/GridContainer/SoundValue
 @onready var music_value = $MarginContainer/GridContainer/MarginContainer/GridContainer/MusicValue
 @onready var langue_value = $MarginContainer/GridContainer/MarginContainer/GridContainer/LangueValue
