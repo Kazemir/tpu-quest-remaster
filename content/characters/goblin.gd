@@ -3,9 +3,15 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 
-@onready var animated_sprite = $AnimatedSprite
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var blood_particles: CPUParticles2D = $BloodParticles
 
-@export var life = 60
+@onready var pain_sound: AudioStreamPlayer2D = $PainSound
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound
+
+@export var life: int = 60
+var is_damage_taken = false
 
 func _physics_process(delta):
 	if GameManager.is_game_paused:
@@ -15,12 +21,19 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if is_on_wall() and is_on_floor():
+	if is_damage_taken:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if velocity.x == 0:
+			is_damage_taken = false
+			handle_animation()
+	elif is_on_wall() and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	move_and_slide()
 
 func move(dir, speed):
+	if is_damage_taken:
+		return
 	velocity.x = dir * speed
 	handle_animation()
 	update_flip(dir)
@@ -52,3 +65,28 @@ func on_save_game(saved_data: Array[SavedData]):
 	data.position = global_position
 	data.health = life
 	saved_data.append(data)
+
+func deal_damage(val: int, from: Node2D):
+	print("Goblin, damage taken: ", val)
+	if is_damage_taken:
+		return
+	life -= val
+	if life <= 0:
+		death_sound.play()
+		await death_sound.finished
+		queue_free() # TODO wait
+	else:
+		animated_sprite.play("idle")
+		animation_player.play("pain")
+		blood_particles.restart()
+		pain_sound.play()
+		
+		var dir = global_position.direction_to(from.global_position)
+		velocity.x = -dir.x * SPEED * 11
+		velocity.y = JUMP_VELOCITY * 0.7
+		
+		is_damage_taken = true
+
+
+func _on_attack_area_body_entered(body):
+	body.deal_damage(5, self)

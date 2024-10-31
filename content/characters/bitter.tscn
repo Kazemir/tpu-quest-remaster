@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ce80f7k81y6yi"]
+[gd_scene load_steps=16 format=3 uid="uid://ce80f7k81y6yi"]
 
 [ext_resource type="Script" path="res://content/characters/bitter.gd" id="1_gdjtb"]
 [ext_resource type="Texture2D" uid="uid://c3npn56vwuvme" path="res://content/graphics/characters/gremlins.png" id="1_twl5x"]
+[ext_resource type="AudioStream" uid="uid://ckrt16ekwqhi3" path="res://content/audio/enemy_pain.wav" id="3_av07j"]
+[ext_resource type="AudioStream" uid="uid://csasvoqfb2pdc" path="res://content/audio/enemy_death.wav" id="4_qufvu"]
+[ext_resource type="Texture2D" uid="uid://bbkrxslju54uk" path="res://content/graphics/particle.png" id="5_kelhj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mk5bm"]
 atlas = ExtResource("1_twl5x")
@@ -28,6 +31,53 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7e3nk"]
 size = Vector2(73, 61)
 
+[sub_resource type="Animation" id="Animation_w8ex6"]
+resource_name = "pain"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p0y1x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_00bcx"]
+_data = {
+"RESET": SubResource("Animation_p0y1x"),
+"pain": SubResource("Animation_w8ex6")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vg23"]
+atlas = ExtResource("5_kelhj")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="Gradient" id="Gradient_qpg6i"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43o2n"]
+size = Vector2(73, 61)
+
 [node name="Bitter" type="CharacterBody2D" groups=["Enemy", "Saveable"]]
 collision_layer = 4
 script = ExtResource("1_gdjtb")
@@ -43,3 +93,43 @@ frame_progress = 0.102894
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, -31.5)
 shape = SubResource("RectangleShape2D_7e3nk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_00bcx")
+}
+
+[node name="PainSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_av07j")
+bus = &"SFX"
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qufvu")
+
+[node name="BloodParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, -30)
+emitting = false
+amount = 30
+lifetime = 0.2
+one_shot = true
+texture = SubResource("AtlasTexture_4vg23")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 180.0
+initial_velocity_max = 180.0
+linear_accel_min = 0.05
+linear_accel_max = 0.05
+damping_min = 0.5
+damping_max = 0.5
+color_ramp = SubResource("Gradient_qpg6i")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-1.5, -31.5)
+shape = SubResource("RectangleShape2D_43o2n")
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

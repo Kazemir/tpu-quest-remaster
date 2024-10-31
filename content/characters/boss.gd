@@ -4,6 +4,11 @@ const SPEED = 75.0
 const JUMP_VELOCITY = -400.0
 
 @onready var animated_sprite = $AnimatedSprite
+@onready var animation_player = $AnimationPlayer
+@onready var blood_particles = $BloodParticles
+
+@onready var pain_sound = $PainSound
+@onready var death_sound = $DeathSound
 
 @export var life = 300
 
@@ -52,3 +57,19 @@ func on_save_game(saved_data: Array[SavedData]):
 	data.position = global_position
 	data.health = life
 	saved_data.append(data)
+
+func deal_damage(val: int, from: Node2D):
+	print("Boss, damage taken: ", val)
+	life -= val
+	if life <= 0:
+		death_sound.play()
+		await death_sound.finished
+		queue_free() # TODO wait
+	else:
+		animation_player.play("pain")
+		blood_particles.restart()
+		pain_sound.play()
+
+
+func _on_attack_area_body_entered(body):
+	body.deal_damage(5, self)

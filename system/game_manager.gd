@@ -34,6 +34,8 @@ signal health_changed
 signal money_changed
 signal weapon_chaned
 
+signal game_over
+
 func _ready():
 	_loadSettings()
 	menu_music.play()
@@ -114,6 +116,13 @@ func addHealth(val: int):
 		player_health = MAX_HEALTH
 	potion_sound.play()
 	health_changed.emit(player_health)
+	
+func recieveDamage(val: int):
+	player_health -= val
+	if player_health <= 0:
+		game_over.emit()
+	else:
+		health_changed.emit(player_health)
 	
 func addWeapon(type: WeaponType):
 	player_weapon = type

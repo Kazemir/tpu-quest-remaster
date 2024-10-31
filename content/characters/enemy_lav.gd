@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var death_sound = $DeathSound
+
 @export var life = 10
 
 func _physics_process(delta):
@@ -23,3 +25,12 @@ func on_save_game(saved_data: Array[SavedData]):
 	data.position = global_position
 	data.health = life
 	saved_data.append(data)
+
+func deal_damage(val: int, from: Node2D):
+	print("LAV, damage taken: ", val)
+	life -= val
+	if life <= 0:
+		death_sound.play()
+		await death_sound.finished
+		queue_free() # TODO wait
+	

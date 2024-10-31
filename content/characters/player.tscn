@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dtw13btpgx5q2"]
+[gd_scene load_steps=37 format=3 uid="uid://dtw13btpgx5q2"]
 
 [ext_resource type="Texture2D" uid="uid://6ipdm8h6yhfp" path="res://content/graphics/characters/character.png" id="1_egk1u"]
 [ext_resource type="Script" path="res://content/characters/player.gd" id="1_waxjt"]
@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bsnohfkpkwh21" path="res://content/audio/player_soundJumpStop.wav" id="4_trbxg"]
 [ext_resource type="Texture2D" uid="uid://bbkrxslju54uk" path="res://content/graphics/particle.png" id="5_0i8tl"]
 [ext_resource type="AudioStream" uid="uid://dndnq8kwdsiny" path="res://content/audio/player_soundPain.wav" id="6_wsgte"]
-[ext_resource type="AudioStream" uid="uid://bubfmqnt3oige" path="res://content/audio/player_soundSword.wav" id="7_b36hy"]
+[ext_resource type="AudioStream" uid="uid://mmc245ays5wy" path="res://content/audio/player_attack.wav" id="7_ym0xy"]
 [ext_resource type="AudioStream" uid="uid://dsn03502beug0" path="res://content/audio/gravel2.ogg" id="8_m65se"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m61x6"]
@@ -84,7 +84,7 @@ animations = [{
 "duration": 4.0,
 "texture": SubResource("AtlasTexture_8nd5x")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 30.0
 }, {
@@ -137,9 +137,49 @@ animations = [{
 "speed": 19.0
 }]
 
+[sub_resource type="Animation" id="Animation_7bphv"]
+resource_name = "pain"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8mnug"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vnhd"]
+_data = {
+"RESET": SubResource("Animation_8mnug"),
+"pain": SubResource("Animation_7bphv")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hlfnc"]
 radius = 11.0
 height = 74.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4123"]
+size = Vector2(58, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ff0jm"]
 atlas = ExtResource("5_0i8tl")
@@ -161,6 +201,13 @@ region = Rect2(20, 0, 10, 10)
 _data = [Vector2(0, 0.994141), 0.0, 0.0, 0, 0, Vector2(1, 0.285264), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_na8hk"]
+atlas = ExtResource("5_0i8tl")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="Gradient" id="Gradient_8180a"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 0)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 17
@@ -170,22 +217,27 @@ script = ExtResource("1_waxjt")
 position = Vector2(0, -40)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_6tfcp")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1vnhd")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -37)
 shape = SubResource("CapsuleShape2D_hlfnc")
 
-[node name="SoundJumpStart" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_cd2hf")
-volume_db = -10.0
-bus = &"SFX"
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
-[node name="SoundJumpStop" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_trbxg")
-volume_db = -10.0
-bus = &"SFX"
+[node name="CollisionShape" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(18, -45)
+shape = SubResource("RectangleShape2D_g4123")
 
 [node name="ParticlesJumpRight" type="CPUParticles2D" parent="."]
 emitting = false
@@ -216,13 +268,41 @@ initial_velocity_max = 450.0
 scale_amount_curve = SubResource("Curve_ak0nt")
 color_ramp = SubResource("Gradient_foeg7")
 
+[node name="BloodParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, -35)
+emitting = false
+amount = 20
+lifetime = 0.2
+one_shot = true
+texture = SubResource("AtlasTexture_na8hk")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 120.0
+initial_velocity_max = 120.0
+linear_accel_min = 0.05
+linear_accel_max = 0.05
+damping_min = 0.5
+damping_max = 0.5
+color_ramp = SubResource("Gradient_8180a")
+
+[node name="SoundJumpStart" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cd2hf")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="SoundJumpStop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_trbxg")
+volume_db = -10.0
+bus = &"SFX"
+
 [node name="SoundPain" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_wsgte")
 volume_db = -10.0
 bus = &"SFX"
 
 [node name="SoundSwordAttack" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_b36hy")
+stream = ExtResource("7_ym0xy")
 volume_db = -10.0
 bus = &"SFX"
 
@@ -232,3 +312,5 @@ volume_db = -10.0
 bus = &"SFX"
 
 [connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

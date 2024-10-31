@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjsopsup25bxy"]
+[gd_scene load_steps=5 format=3 uid="uid://bjsopsup25bxy"]
 
 [ext_resource type="Texture2D" uid="uid://dbxqin5d5j753" path="res://content/graphics/characters/vova.png" id="1_e3haw"]
+[ext_resource type="Script" path="res://content/characters/enemy_lav.gd" id="1_xjc0x"]
 [ext_resource type="AudioStream" uid="uid://btvt3id6jeii8" path="res://content/audio/LAV_Roul2.wav" id="2_tgqos"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68vui"]
@@ -8,6 +9,7 @@ size = Vector2(23, 79)
 
 [node name="EnemyVova" type="CharacterBody2D" groups=["Enemy", "Saveable"]]
 collision_layer = 4
+script = ExtResource("1_xjc0x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-4, -44)

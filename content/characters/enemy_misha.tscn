@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://qte2m1prdpps"]
+[gd_scene load_steps=5 format=3 uid="uid://qte2m1prdpps"]
 
+[ext_resource type="Script" path="res://content/characters/enemy_lav.gd" id="1_5lnv2"]
 [ext_resource type="Texture2D" uid="uid://xjxc88u8pqap" path="res://content/graphics/characters/kazemir.png" id="1_b6a6p"]
 [ext_resource type="AudioStream" uid="uid://b1y6hghu0w3yr" path="res://content/audio/LAV_Kaz.wav" id="2_v7udk"]
 
@@ -8,6 +9,7 @@ size = Vector2(30.5, 79)
 
 [node name="EnemyMisha" type="CharacterBody2D" groups=["Enemy", "Saveable"]]
 collision_layer = 4
+script = ExtResource("1_5lnv2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(11, -40)

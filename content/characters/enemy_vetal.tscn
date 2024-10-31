@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnswe1uu6bbso"]
+[gd_scene load_steps=5 format=3 uid="uid://bnswe1uu6bbso"]
 
 [ext_resource type="Texture2D" uid="uid://cpmmbjc2b85tj" path="res://content/graphics/characters/droz.png" id="1_815ek"]
+[ext_resource type="Script" path="res://content/characters/enemy_lav.gd" id="1_j81jj"]
 [ext_resource type="AudioStream" uid="uid://bm4xbsyderrfe" path="res://content/audio/LAV_Droz.wav" id="2_x32rx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68vui"]
@@ -8,6 +9,7 @@ size = Vector2(21, 78)
 
 [node name="EnemyVetal" type="CharacterBody2D" groups=["Enemy", "Saveable"]]
 collision_layer = 4
+script = ExtResource("1_j81jj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3, -40)
