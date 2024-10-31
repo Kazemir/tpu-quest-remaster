@@ -1,9 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://jt7320igdr8j"]
+[gd_scene load_steps=12 format=3 uid="uid://jt7320igdr8j"]
 
 [ext_resource type="Theme" uid="uid://b7cp6hc23xm1k" path="res://content/themes/dialog_theme.tres" id="1_prr0l"]
-[ext_resource type="Texture2D" uid="uid://dlpibheo7nm6q" path="res://content/graphics/items/potion_red_small.png" id="2_ghffn"]
+[ext_resource type="Script" path="res://content/dialogs/trader_dialog.gd" id="2_nbedt"]
 [ext_resource type="Texture2D" uid="uid://cqyndxf7bmku2" path="res://content/graphics/items/potion_red.png" id="3_6d7an"]
 [ext_resource type="Texture2D" uid="uid://b2wsdnqxf63k8" path="res://content/graphics/items/heart.png" id="4_1ors0"]
+[ext_resource type="Script" path="res://content/dialogs/trade_item.gd" id="4_7plib"]
+[ext_resource type="Texture2D" uid="uid://dlpibheo7nm6q" path="res://content/graphics/items/potion_red_small.png" id="4_b8gen"]
+[ext_resource type="Script" path="res://content/dialogs/trade_data.gd" id="7_q2vn0"]
+
+[sub_resource type="Resource" id="Resource_x0do5"]
+script = ExtResource("4_7plib")
+item_icon = ExtResource("4_b8gen")
+item_healin_power = 25
+price = 5
+
+[sub_resource type="Resource" id="Resource_npexh"]
+script = ExtResource("4_7plib")
+item_icon = ExtResource("3_6d7an")
+item_healin_power = 50
+price = 10
+
+[sub_resource type="Resource" id="Resource_5mxgt"]
+script = ExtResource("4_7plib")
+item_icon = ExtResource("4_1ors0")
+item_healin_power = 100
+price = 15
+
+[sub_resource type="Resource" id="Resource_ypepc"]
+script = ExtResource("7_q2vn0")
+name = "game_traderBox_caption"
+items = Array[ExtResource("4_7plib")]([SubResource("Resource_x0do5"), SubResource("Resource_npexh"), SubResource("Resource_5mxgt")])
 
 [node name="TraderDialog" type="Control"]
 layout_mode = 3
@@ -15,6 +41,8 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_prr0l")
+script = ExtResource("2_nbedt")
+trade_data = SubResource("Resource_ypepc")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -42,6 +70,7 @@ theme_type_variation = &"PanelInner"
 layout_mode = 2
 
 [node name="CaptionLabel" type="Label" parent="PanelContainer/VBoxContainer/PanelContainer/CenterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"CaptionLabel"
 text = "game_traderBox_caption"
@@ -50,73 +79,11 @@ text = "game_traderBox_caption"
 layout_mode = 2
 theme_type_variation = &"PanelInner"
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/PanelContainer2"]
+[node name="ItemsContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/PanelContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 16
 columns = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer"]
-layout_mode = 2
-theme_type_variation = &"PanelInner"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer/PanelContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_ghffn")
-stretch_mode = 4
-
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer/PanelContainer/VBoxContainer/CenterContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 6
-
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer/PanelContainer/VBoxContainer/CenterContainer/MarginContainer"]
-layout_mode = 2
-text = "5"
-
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer"]
-layout_mode = 2
-theme_type_variation = &"PanelInner"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer/PanelContainer2"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer/PanelContainer2/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("3_6d7an")
-stretch_mode = 4
-
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer/PanelContainer2/VBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer/PanelContainer2/VBoxContainer/CenterContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 6
-
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer/PanelContainer2/VBoxContainer/CenterContainer/MarginContainer"]
-layout_mode = 2
-text = "10"
-
-[node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer"]
-layout_mode = 2
-theme_type_variation = &"PanelInner"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer/PanelContainer3"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer/PanelContainer3/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("4_1ors0")
-stretch_mode = 4
-
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer/PanelContainer3/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/PanelContainer2/GridContainer/PanelContainer3/VBoxContainer/CenterContainer"]
-layout_mode = 2
-text = "15"
+[connection signal="ready" from="." to="." method="_on_ready"]

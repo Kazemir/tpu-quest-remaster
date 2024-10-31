@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var trade_data: TradeData
+
 @onready var trade_label = $TradeLabel
 
 var dialog: PackedScene = preload("res://content/dialogs/trader_dialog.tscn") as PackedScene
@@ -19,4 +21,6 @@ func _process(_delta):
 	if Engine.is_editor_hint() or GameManager.is_game_paused:
 		return
 	if Input.is_action_just_pressed("action") and trade_label.visible:
-		DialogManager.show_dialog(dialog.instantiate())
+		var dialog = dialog.instantiate() as TraderDialog
+		dialog.trade_data = trade_data
+		DialogManager.show_dialog(dialog)

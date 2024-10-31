@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bjwtr861vjv6t"]
+[gd_scene load_steps=39 format=4 uid="uid://bjwtr861vjv6t"]
 
 [ext_resource type="Texture2D" uid="uid://2y35tnw7ondi" path="res://content/graphics/clouds2.png" id="2_egik3"]
 [ext_resource type="TileSet" uid="uid://uk3bf85i3ky3" path="res://content/levels/tile_set.tres" id="2_emous"]
@@ -12,14 +12,19 @@
 [ext_resource type="PackedScene" uid="uid://dl22dgm5uy3mi" path="res://content/items/weapon.tscn" id="11_ckvdm"]
 [ext_resource type="PackedScene" uid="uid://dnu04upm24n1n" path="res://content/items/sword_light.tscn" id="12_0n4j7"]
 [ext_resource type="PackedScene" uid="uid://di1ltu7leiaqb" path="res://content/characters/trader.tscn" id="13_8oc87"]
+[ext_resource type="Script" path="res://content/dialogs/trade_item.gd" id="14_cg5tk"]
 [ext_resource type="PackedScene" uid="uid://cgfwdasgyatrk" path="res://content/characters/talker.tscn" id="14_p35x8"]
 [ext_resource type="PackedScene" uid="uid://r1fn4hn0fsxs" path="res://content/helpers/trader_helper.tscn" id="14_y4kis"]
+[ext_resource type="Texture2D" uid="uid://dlpibheo7nm6q" path="res://content/graphics/items/potion_red_small.png" id="15_kgkpn"]
 [ext_resource type="PackedScene" uid="uid://dtw13btpgx5q2" path="res://content/characters/player.tscn" id="15_l1axg"]
 [ext_resource type="Resource" uid="uid://ddspff8aqoldp" path="res://content/dialogs/talk_data_madguy.tres" id="16_32wi6"]
 [ext_resource type="PackedScene" uid="uid://ce80f7k81y6yi" path="res://content/characters/bitter.tscn" id="16_jrkj4"]
+[ext_resource type="Texture2D" uid="uid://cqyndxf7bmku2" path="res://content/graphics/items/potion_red.png" id="16_sj3n1"]
 [ext_resource type="PackedScene" uid="uid://bj8v718nyv73" path="res://content/helpers/talker_helper.tscn" id="16_sy3hi"]
 [ext_resource type="PackedScene" uid="uid://cqio2e4abmn31" path="res://content/characters/goblin.tscn" id="17_drixb"]
+[ext_resource type="Texture2D" uid="uid://b2wsdnqxf63k8" path="res://content/graphics/items/heart.png" id="17_hw032"]
 [ext_resource type="PackedScene" uid="uid://b36tbjggvho00" path="res://system/game_hud.tscn" id="18_6eodi"]
+[ext_resource type="Script" path="res://content/dialogs/trade_data.gd" id="18_yh1bt"]
 [ext_resource type="PackedScene" uid="uid://cs82nrqoucpff" path="res://content/helpers/change_map_helper.tscn" id="19_41d1q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bydv6"]
@@ -116,6 +121,29 @@ scenes/2/scene = ExtResource("12_0n4j7")
 tile_size = Vector2i(40, 40)
 sources/0 = SubResource("TileSetScenesCollectionSource_innru")
 
+[sub_resource type="Resource" id="Resource_x0do5"]
+script = ExtResource("14_cg5tk")
+item_icon = ExtResource("15_kgkpn")
+item_healin_power = 25
+price = 5
+
+[sub_resource type="Resource" id="Resource_npexh"]
+script = ExtResource("14_cg5tk")
+item_icon = ExtResource("16_sj3n1")
+item_healin_power = 50
+price = 10
+
+[sub_resource type="Resource" id="Resource_5mxgt"]
+script = ExtResource("14_cg5tk")
+item_icon = ExtResource("17_hw032")
+item_healin_power = 100
+price = 15
+
+[sub_resource type="Resource" id="Resource_w1fo8"]
+script = ExtResource("18_yh1bt")
+name = "game_traderBox_caption"
+items = Array[ExtResource("14_cg5tk")]([SubResource("Resource_x0do5"), SubResource("Resource_npexh"), SubResource("Resource_5mxgt")])
+
 [node name="FungusLevel" type="Node2D"]
 
 [node name="BgColor" type="ColorRect" parent="."]
@@ -158,6 +186,7 @@ tile_set = SubResource("TileSet_e6sho")
 position = Vector2(-1102, -239)
 
 [node name="TraderHelper" parent="Trader" instance=ExtResource("14_y4kis")]
+trade_data = SubResource("Resource_w1fo8")
 
 [node name="Talker" parent="." instance=ExtResource("14_p35x8")]
 position = Vector2(1888, -39)

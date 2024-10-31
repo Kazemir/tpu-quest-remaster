@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://b7cp6hc23xm1k"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://b7cp6hc23xm1k"]
 
 [ext_resource type="FontFile" uid="uid://cjkn06y4uh5aa" path="res://content/font/PixelCyr.ttf" id="1_c4aqn"]
 [ext_resource type="FontFile" uid="uid://dv2r1wmumw5g5" path="res://content/font/Molot.ttf" id="2_4wh5w"]
@@ -15,6 +15,12 @@ texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4o2eg"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ybcx"]
 content_margin_top = 4.0
@@ -35,6 +41,8 @@ MenuLabel/base_type = &"Label"
 MenuLabel/font_sizes/font_size = 18
 MenuLabel/fonts/font = ExtResource("2_4wh5w")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_arwoe")
+PanelEmpty/base_type = &"PanelContainer"
+PanelEmpty/styles/panel = SubResource("StyleBoxEmpty_4o2eg")
 PanelInner/base_type = &"PanelContainer"
 PanelInner/styles/panel = SubResource("StyleBoxTexture_3ybcx")
 VBoxContainer/constants/separation = 1

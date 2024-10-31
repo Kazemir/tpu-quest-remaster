@@ -24,13 +24,15 @@ var setting_sound = 6
 var setting_music = 9
 
 const MAX_HEALTH = 100
-enum WeaponType { None, Sword, SwordLight }
-var player_health: int = 100
+enum WeaponType {None, Sword, SwordLight}
+var player_health: int = MAX_HEALTH
 var player_money: int = 0
 var player_money_queue: int = 0
 var player_weapon: WeaponType = WeaponType.None
 
+signal health_changed
 signal money_changed
+signal weapon_chaned
 
 func _ready():
 	_loadSettings()
@@ -62,6 +64,10 @@ func resetPlayer():
 	player_money = 0
 	player_money_queue = 0
 	player_weapon = WeaponType.None
+	
+	health_changed.emit(player_health)
+	money_changed.emit(player_money)
+	weapon_chaned.emit(player_weapon)
 
 func saveSettings():
 	var config = ConfigFile.new()
@@ -107,13 +113,21 @@ func addHealth(val: int):
 	if player_health > MAX_HEALTH:
 		player_health = MAX_HEALTH
 	potion_sound.play()
+	health_changed.emit(player_health)
 	
 func addWeapon(type: WeaponType):
 	player_weapon = type
 	weapon_sound.play()
+	weapon_chaned.emit(type)
+
+func getMoney() -> int:
+	return player_money
 
 func addMoney(val: int):
 	player_money_queue += val
+
+func spendMoney(val: int):
+	_setMoney(getMoney() - val)
 
 func _setMoney(val: int):
 	player_money = val
