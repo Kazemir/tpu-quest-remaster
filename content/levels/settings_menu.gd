@@ -77,12 +77,12 @@ func _process(_delta):
 				prevIndex = index + 1
 			TranslationServer.set_locale(sorted_locales[prevIndex])
 		GameManager.saveSettings()
-	
+
 	if newCurrentMenuElement < 0:
 		newCurrentMenuElement = menu_values.size() - 1
 	elif newCurrentMenuElement >= menu_values.size():
 		newCurrentMenuElement = 0
-		
+
 	if newCurrentMenuElement != currentMenuElement:
 		currentMenuElement = newCurrentMenuElement
 		updateMenu()
@@ -96,7 +96,7 @@ func updateMenu():
 	var black = Color(0.0, 0.0, 0.0, 1.0)
 	for i in menu_values.size():
 		menu_values[i].set(
-			"theme_override_colors/font_color", 
+			"theme_override_colors/font_color",
 			red if currentMenuElement == i else black
 		)
 

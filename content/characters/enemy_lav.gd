@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-@onready var death_sound = $DeathSound
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@export var life = 10
+var is_damage_taken = false
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -16,21 +17,25 @@ func on_before_load_game():
 
 func on_load_game(data: SavedData):
 	global_position = data.position
-	if data is SavedEnemyData:
-		life = data.health
-	
+
 func on_save_game(saved_data: Array[SavedData]):
 	var data = SavedEnemyData.new()
 	data.scene_path = scene_file_path
 	data.position = global_position
-	data.health = life
+	data.health = 10
 	saved_data.append(data)
 
 func deal_damage(val: int, from: Node2D):
-	print("LAV, damage taken: ", val)
-	life -= val
-	if life <= 0:
-		death_sound.play()
-		await death_sound.finished
-		queue_free() # TODO wait
-	
+	if is_damage_taken:
+		return
+
+	is_damage_taken = true
+	animation_player.play("die")
+	death_sound.play()
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "die":
+		if death_sound.playing:
+			await death_sound.finished
+		queue_free()

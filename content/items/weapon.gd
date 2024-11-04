@@ -34,7 +34,7 @@ func on_load_game(data: SavedData):
 	global_position = data.position
 	if data is SavedWeaponData:
 		type = data.type
-	
+
 func on_save_game(saved_data: Array[SavedData]):
 	var data = SavedWeaponData.new()
 	data.scene_path = scene_file_path

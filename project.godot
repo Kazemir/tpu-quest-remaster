@@ -23,6 +23,11 @@ TransitionManager="*res://system/transition_manager.tscn"
 NavigationManager="*res://system/navigation_manager.gd"
 DialogManager="*res://system/dialog_manager.tscn"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/inferred_declaration=1
+
 [display]
 
 window/size/viewport_width=800

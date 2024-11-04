@@ -1,29 +1,29 @@
 extends Node
 
-@onready var menu_music: AudioStreamPlayer2D = $MenuMusic
-@onready var game_music: AudioStreamPlayer2D = $GameMusic
-@onready var win_music: AudioStreamPlayer2D = $WinMusic
+@onready var menu_music: AudioStreamPlayer = $MenuMusic
+@onready var game_music: AudioStreamPlayer = $GameMusic
+@onready var win_music: AudioStreamPlayer = $WinMusic
 
-@onready var coin_sound: AudioStreamPlayer2D = $CoinSound
-@onready var potion_sound: AudioStreamPlayer2D = $PotionSound
-@onready var weapon_sound: AudioStreamPlayer2D = $WeaponSound
+@onready var coin_sound: AudioStreamPlayer = $CoinSound
+@onready var potion_sound: AudioStreamPlayer = $PotionSound
+@onready var weapon_sound: AudioStreamPlayer = $WeaponSound
 
 @onready var coin_queue_processor: Timer = $CoinQueueProcessor
 
 var ingame_menu_dialog: PackedScene = preload("res://content/dialogs/ingame_menu_dialog.tscn") as PackedScene
 
-var is_in_dev_mode = true
+var is_in_dev_mode: bool = true
 
-var is_game_paused = false
+var is_game_paused: bool = false
 
-var is_in_main_menu = false
-var is_in_dialog_menu = false
-var is_in_game = false
+var is_in_main_menu: bool = false
+var is_in_dialog_menu: bool = false
+var is_in_game: bool = false
 
-var setting_sound = 6
-var setting_music = 9
+var setting_sound: int = 6
+var setting_music: int = 9
 
-const MAX_HEALTH = 100
+const MAX_HEALTH: int = 100
 enum WeaponType {None, Sword, SwordLight}
 var player_health: int = MAX_HEALTH
 var player_money: int = 0
@@ -33,8 +33,6 @@ var player_weapon: WeaponType = WeaponType.None
 signal health_changed
 signal money_changed
 signal weapon_chaned
-
-signal game_over
 
 func _ready():
 	_loadSettings()
@@ -66,7 +64,7 @@ func resetPlayer():
 	player_money = 0
 	player_money_queue = 0
 	player_weapon = WeaponType.None
-	
+
 	health_changed.emit(player_health)
 	money_changed.emit(player_money)
 	weapon_chaned.emit(player_weapon)
@@ -99,11 +97,11 @@ func _log10(x: float) -> float:
 func _loadSettings():
 	var config = ConfigFile.new()
 	config.load("user://config.cfg")
-	
+
 	setting_sound = config.get_value("settings", "sound", setting_sound)
 	setting_music = config.get_value("settings", "music", setting_music)
 	applySoundSettings()
-	
+
 	var language = config.get_value("settings", "language", "ru")
 	TranslationServer.set_locale(language)
 
@@ -116,14 +114,16 @@ func addHealth(val: int):
 		player_health = MAX_HEALTH
 	potion_sound.play()
 	health_changed.emit(player_health)
-	
+
 func recieveDamage(val: int):
 	player_health -= val
 	if player_health <= 0:
-		game_over.emit()
+		is_in_game = false
+		game_music.stop()
+		get_tree().change_scene_to_file("res://content/levels/game_over_screen.tscn")
 	else:
 		health_changed.emit(player_health)
-	
+
 func addWeapon(type: WeaponType):
 	player_weapon = type
 	weapon_sound.play()
@@ -150,3 +150,13 @@ func _on_coin_queue_processor_timeout():
 		coin_sound.stop()
 	coin_sound.play()
 	player_money_queue -= 1
+
+func triggerGameWin():
+	is_in_game = false
+	game_music.stop()
+	win_music.play()
+	get_tree().change_scene_to_file("res://content/levels/win_screen.tscn")
+
+func get_game_score() -> int:
+	var money = player_money + player_money_queue
+	return money * 5 + player_health

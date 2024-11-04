@@ -15,21 +15,21 @@ func _on_ready():
 	if trade_data == null:
 		return
 	caption_label.text = trade_data.name
-	
+
 	for child in items_container.get_children():
 		items_container.remove_child(child)
-	
+
 	for item_data in trade_data.items:
 		var new_item = trader_item.instantiate() as TraderItem
 		new_item.data = item_data
 		items_container.add_child(new_item)
-	
+
 	update()
 
 func _process(delta):
 	if trade_data == null or Engine.is_editor_hint():
 		return
-	
+
 	var new_trade_element = current_trade_element
 	if Input.is_action_just_pressed("move_left"):
 		new_trade_element -= 1
@@ -54,7 +54,7 @@ func _process(delta):
 		new_trade_element = trade_data.items.size() - 1
 	elif new_trade_element >= trade_data.items.size():
 		new_trade_element = 0
-		
+
 	if new_trade_element != current_trade_element:
 		current_trade_element = new_trade_element
 		update()

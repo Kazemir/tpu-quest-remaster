@@ -12,11 +12,11 @@ extends PanelContainer
 func _ready():
 	if data == null:
 		return
-	
+
 	item_icon.texture = data.item_icon
 	price_label.text = str(data.price)
 	set_selected(is_selected)
-	
+
 
 func set_selected(is_selected: bool):
 	theme_type_variation = "PanelInner" if is_selected else "PanelEmpty"

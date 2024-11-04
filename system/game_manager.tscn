@@ -11,27 +11,27 @@
 [node name="GameManager" type="Node"]
 script = ExtResource("1_g2fxb")
 
-[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_n41ct")
 bus = &"Music"
 
-[node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_li1gy")
 bus = &"Music"
 
-[node name="WinMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="WinMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_r371t")
 bus = &"Music"
 
-[node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
+[node name="CoinSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_np11m")
 bus = &"SFX"
 
-[node name="PotionSound" type="AudioStreamPlayer2D" parent="."]
+[node name="PotionSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_i7ba2")
 bus = &"SFX"
 
-[node name="WeaponSound" type="AudioStreamPlayer2D" parent="."]
+[node name="WeaponSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_5q6qu")
 bus = &"SFX"
 

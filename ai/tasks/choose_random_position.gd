@@ -9,7 +9,7 @@ extends BTAction
 func _tick(_delta: float) -> Status:
 	var pos: Vector2
 	var dir = random_dir()
-	
+
 	pos = random_pos(dir)
 	blackboard.set_var(position_var, pos)
 

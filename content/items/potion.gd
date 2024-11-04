@@ -35,7 +35,7 @@ func on_load_game(data: SavedData):
 	global_position = data.position
 	if data is SavedPotionData:
 		type = data.type
-	
+
 func on_save_game(saved_data: Array[SavedData]):
 	var data = SavedPotionData.new()
 	data.scene_path = scene_file_path

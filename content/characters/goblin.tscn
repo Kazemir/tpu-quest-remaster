@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cqio2e4abmn31"]
+[gd_scene load_steps=23 format=3 uid="uid://cqio2e4abmn31"]
 
 [ext_resource type="Script" path="res://content/characters/goblin.gd" id="1_d81us"]
 [ext_resource type="Texture2D" uid="uid://c3npn56vwuvme" path="res://content/graphics/characters/gremlins.png" id="1_hmkht"]
@@ -67,6 +67,37 @@ size = Vector2(75.5, 73.5)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_84k4p"]
 
+[sub_resource type="Animation" id="Animation_qu0qo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l3vju"]
+resource_name = "die"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_2vqub"]
 resource_name = "pain"
 length = 0.2
@@ -83,24 +114,10 @@ tracks/0/keys = {
 "values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_qu0qo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wtjrf"]
 _data = {
 "RESET": SubResource("Animation_qu0qo"),
+"die": SubResource("Animation_l3vju"),
 "pain": SubResource("Animation_2vqub")
 }
 
@@ -173,4 +190,6 @@ collision_mask = 2
 position = Vector2(-1, -37)
 shape = SubResource("RectangleShape2D_anrb5")
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

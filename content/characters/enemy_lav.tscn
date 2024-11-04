@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjy0bjfqvve8l"]
+[gd_scene load_steps=8 format=3 uid="uid://bjy0bjfqvve8l"]
 
 [ext_resource type="Script" path="res://content/characters/enemy_lav.gd" id="1_dicng"]
 [ext_resource type="Texture2D" uid="uid://c0xjt2d1fdfcg" path="res://content/graphics/characters/lav.png" id="1_iwy23"]
@@ -6,6 +6,43 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68vui"]
 size = Vector2(316, 93.5)
+
+[sub_resource type="Animation" id="Animation_88isu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3l82c"]
+resource_name = "die"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_go1f8"]
+_data = {
+"RESET": SubResource("Animation_88isu"),
+"die": SubResource("Animation_3l82c")
+}
 
 [node name="EnemyLav" type="CharacterBody2D" groups=["Enemy", "Saveable"]]
 collision_layer = 4
@@ -22,3 +59,10 @@ shape = SubResource("RectangleShape2D_68vui")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_nofq4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_go1f8")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

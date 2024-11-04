@@ -1,23 +1,23 @@
 extends Node2D
 
-@onready var canvas_layer = $CanvasLayer
-@onready var main_menu_container = $CanvasLayer/MainMenuContainer
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var main_menu_container: Control = $CanvasLayer/MainMenuContainer
 
-@onready var new_game_label = $CanvasLayer/MainMenuContainer/GridContainer/CenterContainer/NewGameLabel
-@onready var continue_label = $CanvasLayer/MainMenuContainer/GridContainer/CenterContainer2/ContinueLabel
-@onready var settings_label = $CanvasLayer/MainMenuContainer/GridContainer/CenterContainer3/SettingsLabel
-@onready var high_scores_label = $CanvasLayer/MainMenuContainer/GridContainer/CenterContainer4/HighScoresLabel
-@onready var authors_label = $CanvasLayer/MainMenuContainer/GridContainer/CenterContainer5/AuthorsLabel
-@onready var exit_label = $CanvasLayer/MainMenuContainer/GridContainer/CenterContainer6/ExitLabel
+@onready var new_game_label: Label = $CanvasLayer/MainMenuContainer/GridContainer/CenterContainer/NewGameLabel
+@onready var continue_label: Label = $CanvasLayer/MainMenuContainer/GridContainer/CenterContainer2/ContinueLabel
+@onready var settings_label: Label = $CanvasLayer/MainMenuContainer/GridContainer/CenterContainer3/SettingsLabel
+@onready var high_scores_label: Label = $CanvasLayer/MainMenuContainer/GridContainer/CenterContainer4/HighScoresLabel
+@onready var authors_label: Label = $CanvasLayer/MainMenuContainer/GridContainer/CenterContainer5/AuthorsLabel
+@onready var exit_label: Label = $CanvasLayer/MainMenuContainer/GridContainer/CenterContainer6/ExitLabel
 
 @onready var menu_labels: Array[Label] = [new_game_label, continue_label, settings_label, high_scores_label, authors_label, exit_label]
 
-@onready var start_level = preload("res://content/levels/home_level.tscn") as PackedScene
-@onready var authors_menu = preload("res://content/levels/authors_menu.tscn") as PackedScene
-@onready var high_score_menu = preload("res://content/levels/high_score_menu.tscn") as PackedScene
-@onready var settings_menu = preload("res://content/levels/settings_menu.tscn") as PackedScene
+@onready var start_level: PackedScene = preload("res://content/levels/home_level.tscn") as PackedScene
+@onready var authors_menu: PackedScene = preload("res://content/levels/authors_menu.tscn") as PackedScene
+@onready var high_score_menu: PackedScene = preload("res://content/levels/high_score_menu.tscn") as PackedScene
+@onready var settings_menu: PackedScene = preload("res://content/levels/settings_menu.tscn") as PackedScene
 
-@onready var exit_confirm_dialog = preload("res://content/dialogs/exit_confirm_dialog.tscn") as PackedScene
+@onready var exit_confirm_dialog: PackedScene = preload("res://content/dialogs/exit_confirm_dialog.tscn") as PackedScene
 
 var currentMenuElement: int = 0
 var currentChildMenu: Node = null
@@ -44,12 +44,12 @@ func _process(_delta):
 			handleAction()
 		elif currentChildMenu.name == "ExitConfirmDialog":
 			get_tree().quit()
-	
+
 	if newCurrentMenuElement < 0:
 		newCurrentMenuElement = menu_labels.size() - 1
 	elif newCurrentMenuElement >= menu_labels.size():
 		newCurrentMenuElement = 0
-		
+
 	if newCurrentMenuElement != currentMenuElement:
 		currentMenuElement = newCurrentMenuElement
 		updateMenu()
@@ -59,10 +59,10 @@ func updateMenu():
 	var black = Color(0.0, 0.0, 0.0, 1.0)
 	for i in menu_labels.size():
 		menu_labels[i].set(
-			"theme_override_colors/font_color", 
+			"theme_override_colors/font_color",
 			red if currentMenuElement == i else black
 		)
-		
+
 func handleAction():
 	match menu_labels[currentMenuElement]:
 		new_game_label:

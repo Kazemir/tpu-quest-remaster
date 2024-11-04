@@ -245,3 +245,6 @@ level_name = "lav_level"
 
 [node name="GoblinTest" parent="." instance=ExtResource("17_drixb")]
 position = Vector2(-259, -168)
+
+[node name="Weapon" parent="." instance=ExtResource("11_ckvdm")]
+position = Vector2(-141, -145)

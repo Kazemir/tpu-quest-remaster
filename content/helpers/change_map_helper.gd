@@ -1,10 +1,10 @@
 @tool
 extends Area2D
 
-const LEVELS_DIR = "res://content/levels/"
-const SCENE_EXT = ".tscn"
+const LEVELS_DIR: String = "res://content/levels/"
+const SCENE_EXT: String = ".tscn"
 
-@onready var enter_label = $EnterLabel
+@onready var enter_label: Label = $EnterLabel
 @export var level_name: String
 
 func _ready():

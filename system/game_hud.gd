@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-@onready var health_value = %HealthValue
-@onready var coins_value = %CoinsValue
-@onready var weapon_icon = %WeaponIcon
+@onready var health_value: Label = %HealthValue
+@onready var coins_value: Label = %CoinsValue
+@onready var weapon_icon: TextureRect = %WeaponIcon
 
 func _on_ready():
 	GameManager.health_changed.connect(update_health)
@@ -32,4 +32,3 @@ func updateHud():
 	update_health(GameManager.player_health)
 	update_money(GameManager.player_money)
 	update_weapon(GameManager.player_weapon)
-	

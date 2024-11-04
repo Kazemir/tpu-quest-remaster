@@ -56,7 +56,7 @@ offset_right = 801.0
 offset_bottom = 601.0
 color = Color(0.141176, 0.141176, 0.141176, 1)
 
-[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gqc10")
 bus = &"Music"
 
