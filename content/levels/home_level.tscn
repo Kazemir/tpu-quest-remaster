@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://8rri5t27wbxt"]
+[gd_scene load_steps=9 format=4 uid="uid://8rri5t27wbxt"]
 
 [ext_resource type="TileSet" uid="uid://bkvqwrtynvld4" path="res://content/levels/tile_set_inside.tres" id="1_b5yfr"]
+[ext_resource type="Script" path="res://content/levels/home_level.gd" id="1_xcvl0"]
 [ext_resource type="Texture2D" uid="uid://d3wrhq2rsj18n" path="res://content/graphics/stickerset.png" id="2_58k5r"]
 [ext_resource type="PackedScene" uid="uid://dtw13btpgx5q2" path="res://content/characters/player.tscn" id="3_dotpk"]
 [ext_resource type="PackedScene" uid="uid://b36tbjggvho00" path="res://system/game_hud.tscn" id="5_e14hv"]
@@ -72,6 +73,7 @@ tile_size = Vector2i(40, 40)
 sources/1 = SubResource("TileSetAtlasSource_73g2k")
 
 [node name="HomeLevel" type="Node2D"]
+script = ExtResource("1_xcvl0")
 
 [node name="BgColor" type="ColorRect" parent="."]
 z_index = -1000
@@ -99,5 +101,8 @@ limit_smoothed = true
 [node name="ToFungusLevel" parent="." instance=ExtResource("5_u723c")]
 position = Vector2(-380, 0)
 level_name = "fungus_level"
+move_palyer = false
+player_x = 0.0
+player_y = 0.0
 
 [node name="GameHud" parent="." instance=ExtResource("5_e14hv")]

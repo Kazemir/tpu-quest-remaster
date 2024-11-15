@@ -43,7 +43,8 @@ func _process(_delta: float) -> void:
 		if is_in_game and not is_in_dialog_menu:
 			DialogManager.show_dialog(ingame_menu_dialog.instantiate())
 	if is_in_dev_mode and Input.is_action_pressed("restart_level"):
-		get_tree().reload_current_scene()
+		if is_in_game and not is_in_dialog_menu:
+			get_tree().reload_current_scene()
 
 func go_to_game():
 	is_in_main_menu = false

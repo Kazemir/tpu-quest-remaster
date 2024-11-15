@@ -234,17 +234,30 @@ position = Vector2(2520, -40)
 [node name="ToHomeLevel" parent="." instance=ExtResource("19_41d1q")]
 position = Vector2(20, -81)
 level_name = "home_level"
+move_palyer = true
+player_x = -380.0
+player_y = 0.0
 
 [node name="ToTowerLevel" parent="." instance=ExtResource("19_41d1q")]
 position = Vector2(2660, -81)
 level_name = "tower_level"
+move_palyer = false
+player_x = 0.0
+player_y = 0.0
 
 [node name="ToLavLevel" parent="." instance=ExtResource("19_41d1q")]
 position = Vector2(-2020, -441)
 level_name = "lav_level"
+move_palyer = false
+player_x = 0.0
+player_y = 0.0
 
 [node name="GoblinTest" parent="." instance=ExtResource("17_drixb")]
 position = Vector2(-259, -168)
 
 [node name="Weapon" parent="." instance=ExtResource("11_ckvdm")]
 position = Vector2(-141, -145)
+
+[node name="Weapon2" parent="." instance=ExtResource("11_ckvdm")]
+position = Vector2(515, 43)
+type = 1

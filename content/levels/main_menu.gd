@@ -23,6 +23,13 @@ var currentMenuElement: int = 0
 var currentChildMenu: Node = null
 
 func _ready():
+	var bundle = NavigationManager.get_pending_bundle()
+	var target = bundle.get("target")
+	match target:
+		"high_score_menu":
+			currentMenuElement = menu_labels.find(high_scores_label)
+			handleAction()
+
 	GameManager.go_to_main_menu()
 	updateMenu()
 

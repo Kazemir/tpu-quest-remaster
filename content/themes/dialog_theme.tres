@@ -1,9 +1,13 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://b7cp6hc23xm1k"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://b7cp6hc23xm1k"]
 
 [ext_resource type="FontFile" uid="uid://cjkn06y4uh5aa" path="res://content/font/PixelCyr.ttf" id="1_c4aqn"]
 [ext_resource type="FontFile" uid="uid://dv2r1wmumw5g5" path="res://content/font/Molot.ttf" id="2_4wh5w"]
 [ext_resource type="Texture2D" uid="uid://cejfjv718ysqe" path="res://content/graphics/dialog_box.png" id="2_fyl5m"]
 [ext_resource type="Texture2D" uid="uid://jjyryeethl5y" path="res://content/graphics/dialog_box_gray.png" id="3_2kj5c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5wau0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hyxl0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_arwoe"]
 content_margin_left = 2.0
@@ -37,6 +41,13 @@ CaptionLabel/font_sizes/font_size = 20
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 14
 Label/fonts/font = ExtResource("1_c4aqn")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_outline_color = Color(1, 1, 1, 1)
+LineEdit/font_sizes/font_size = 14
+LineEdit/fonts/font = ExtResource("1_c4aqn")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_5wau0")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_hyxl0")
 MenuLabel/base_type = &"Label"
 MenuLabel/font_sizes/font_size = 18
 MenuLabel/fonts/font = ExtResource("2_4wh5w")
