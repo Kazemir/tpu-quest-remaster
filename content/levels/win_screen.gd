@@ -25,6 +25,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if name == null:
 		NavigationManager.MainMenu.go(get_tree())
 	else:
+		HighscoreManager.add_highscore(name, score)
+
 		var bundle = {}
 		bundle["target"] = "high_score_menu"
 		NavigationManager.MainMenu.go(get_tree(), bundle)

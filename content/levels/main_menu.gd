@@ -23,6 +23,8 @@ var currentMenuElement: int = 0
 var currentChildMenu: Node = null
 
 func _ready():
+	GameManager.go_to_main_menu()
+
 	var bundle = NavigationManager.get_pending_bundle()
 	var target = bundle.get("target")
 	match target:
@@ -30,7 +32,6 @@ func _ready():
 			currentMenuElement = menu_labels.find(high_scores_label)
 			handleAction()
 
-	GameManager.go_to_main_menu()
 	updateMenu()
 
 func _process(_delta):

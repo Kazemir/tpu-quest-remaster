@@ -22,6 +22,7 @@ GameSaver="*res://system/game_saver.tscn"
 TransitionManager="*res://system/transition_manager.tscn"
 NavigationManager="*res://system/navigation_manager.gd"
 DialogManager="*res://system/dialog_manager.tscn"
+HighscoreManager="*res://system/highscore_manager.gd"
 
 [debug]
 

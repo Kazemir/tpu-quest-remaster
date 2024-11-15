@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bohck1ybvbhcx"]
+[gd_scene load_steps=3 format=3 uid="uid://bohck1ybvbhcx"]
 
 [ext_resource type="Theme" uid="uid://bjyrd3fvcdm2" path="res://content/themes/menu_theme.tres" id="1_36eo1"]
+[ext_resource type="Script" path="res://content/levels/high_score_menu.gd" id="1_celvj"]
 
 [node name="AuthorsMenu" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_celvj")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -155,3 +157,5 @@ text = "AAA
 layout_mode = 2
 theme_type_variation = &"ScoreValue"
 text = "000000000"
+
+[connection signal="ready" from="." to="." method="_on_ready"]

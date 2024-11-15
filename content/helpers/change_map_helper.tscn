@@ -10,9 +10,6 @@ size = Vector2(55, 81)
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_clsgh")
-move_palyer = null
-player_x = null
-player_y = null
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -40.5)

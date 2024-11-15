@@ -34,7 +34,7 @@ signal health_changed
 signal money_changed
 signal weapon_chaned
 
-func _ready():
+func _ready() -> void:
 	_loadSettings()
 	menu_music.play()
 
@@ -46,21 +46,22 @@ func _process(_delta: float) -> void:
 		if is_in_game and not is_in_dialog_menu:
 			get_tree().reload_current_scene()
 
-func go_to_game():
+func go_to_game() -> void:
 	is_in_main_menu = false
 	is_in_game = true
 	menu_music.stop()
 	if not game_music.playing:
 		game_music.play()
 
-func go_to_main_menu():
+func go_to_main_menu() -> void:
 	is_in_main_menu = true
 	is_in_game = false
 	game_music.stop()
+	win_music.stop()
 	if not menu_music.playing:
 		menu_music.play()
 
-func resetPlayer():
+func resetPlayer() -> void:
 	player_health = MAX_HEALTH
 	player_money = 0
 	player_money_queue = 0
@@ -70,7 +71,7 @@ func resetPlayer():
 	money_changed.emit(player_money)
 	weapon_chaned.emit(player_weapon)
 
-func saveSettings():
+func saveSettings() -> void:
 	var config = ConfigFile.new()
 
 	config.set_value("settings", "sound", setting_sound)
@@ -79,11 +80,11 @@ func saveSettings():
 
 	config.save("user://config.cfg")
 
-func applySoundSettings():
+func applySoundSettings() -> void:
 	_set_music_volume("SFX", setting_sound)
 	_set_music_volume("Music", setting_music)
 
-func _set_music_volume(busName: String, volumeLevel: int):
+func _set_music_volume(busName: String, volumeLevel: int) -> void:
 	var busId = AudioServer.get_bus_index(busName)
 	if volumeLevel == 0:
 		AudioServer.set_bus_mute(busId, true)
@@ -95,7 +96,7 @@ func _set_music_volume(busName: String, volumeLevel: int):
 func _log10(x: float) -> float:
 	return log(x) / log(10)
 
-func _loadSettings():
+func _loadSettings() -> void:
 	var config = ConfigFile.new()
 	config.load("user://config.cfg")
 
@@ -106,17 +107,18 @@ func _loadSettings():
 	var language = config.get_value("settings", "language", "ru")
 	TranslationServer.set_locale(language)
 
+
 func isHealthMaxed() -> bool:
 	return player_health == MAX_HEALTH
 
-func addHealth(val: int):
+func addHealth(val: int) -> void:
 	player_health += val
 	if player_health > MAX_HEALTH:
 		player_health = MAX_HEALTH
 	potion_sound.play()
 	health_changed.emit(player_health)
 
-func recieveDamage(val: int):
+func recieveDamage(val: int) -> void:
 	player_health -= val
 	if player_health <= 0:
 		is_in_game = false
@@ -125,7 +127,7 @@ func recieveDamage(val: int):
 	else:
 		health_changed.emit(player_health)
 
-func addWeapon(type: WeaponType):
+func addWeapon(type: WeaponType) -> void:
 	player_weapon = type
 	weapon_sound.play()
 	weapon_chaned.emit(type)
@@ -133,17 +135,17 @@ func addWeapon(type: WeaponType):
 func getMoney() -> int:
 	return player_money
 
-func addMoney(val: int):
+func addMoney(val: int) -> void:
 	player_money_queue += val
 
-func spendMoney(val: int):
+func spendMoney(val: int) -> void:
 	_setMoney(getMoney() - val)
 
-func _setMoney(val: int):
+func _setMoney(val: int) -> void:
 	player_money = val
 	money_changed.emit(val)
 
-func _on_coin_queue_processor_timeout():
+func _on_coin_queue_processor_timeout() -> void:
 	if player_money_queue == 0:
 		return
 	_setMoney(player_money + 1)
@@ -152,7 +154,7 @@ func _on_coin_queue_processor_timeout():
 	coin_sound.play()
 	player_money_queue -= 1
 
-func triggerGameWin():
+func triggerGameWin() -> void:
 	is_in_game = false
 	game_music.stop()
 	win_music.play()

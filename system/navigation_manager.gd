@@ -24,7 +24,7 @@ class Target:
 	var path: String
 
 	func _init(name: String) -> void:
-		path = LEVELS_DIR + name + SCENE_EXT
+		self.path = LEVELS_DIR + name + SCENE_EXT
 
 	func go(tree: SceneTree, bundle: Dictionary = {}, with_transition: bool = true) -> void:
 		if with_transition:
