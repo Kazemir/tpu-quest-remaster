@@ -8,6 +8,8 @@ extends Node
 @onready var potion_sound: AudioStreamPlayer = $PotionSound
 @onready var weapon_sound: AudioStreamPlayer = $WeaponSound
 
+@onready var touch_overlay: CanvasLayer = $TouchOverlay
+
 @onready var coin_queue_processor: Timer = $CoinQueueProcessor
 
 var ingame_menu_dialog: PackedScene = preload("res://content/dialogs/ingame_menu_dialog.tscn") as PackedScene
@@ -35,6 +37,7 @@ signal money_changed
 signal weapon_chaned
 
 func _ready() -> void:
+	touch_overlay.visible = DisplayServer.is_touchscreen_available()
 	_loadSettings()
 	menu_music.play()
 

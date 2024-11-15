@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2fkemy1mixq3"]
+[gd_scene load_steps=10 format=3 uid="uid://b2fkemy1mixq3"]
 
 [ext_resource type="Script" path="res://system/game_manager.gd" id="1_g2fxb"]
 [ext_resource type="AudioStream" uid="uid://boxm5vpmxoook" path="res://content/music/KineticLaw_HardcoreMode.mp3" id="2_n41ct"]
@@ -7,6 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://dppml38kugrfw" path="res://content/audio/player_soundMoney.wav" id="5_np11m"]
 [ext_resource type="AudioStream" uid="uid://cvt6r5bbvlleu" path="res://content/audio/player_soundPotion.wav" id="6_i7ba2"]
 [ext_resource type="AudioStream" uid="uid://bubfmqnt3oige" path="res://content/audio/player_soundSword.wav" id="7_5q6qu"]
+[ext_resource type="Texture2D" uid="uid://dksn7u0nnpisg" path="res://content/graphics/androidOverlay.png" id="8_hsqp1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1m2ix"]
+size = Vector2(130, 130)
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_g2fxb")
@@ -38,5 +42,54 @@ bus = &"SFX"
 [node name="CoinQueueProcessor" type="Timer" parent="."]
 wait_time = 0.125
 autostart = true
+
+[node name="TouchOverlay" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="TouchOverlay"]
+offset_right = 800.0
+offset_bottom = 600.0
+texture = ExtResource("8_hsqp1")
+
+[node name="EscapeButton" type="TouchScreenButton" parent="TouchOverlay"]
+position = Vector2(65, 65)
+shape = SubResource("RectangleShape2D_1m2ix")
+action = "escape"
+visibility_mode = 1
+
+[node name="ActionButton" type="TouchScreenButton" parent="TouchOverlay"]
+position = Vector2(735, 535)
+shape = SubResource("RectangleShape2D_1m2ix")
+action = "action"
+visibility_mode = 1
+
+[node name="JumpButton" type="TouchScreenButton" parent="TouchOverlay"]
+position = Vector2(735, 405)
+shape = SubResource("RectangleShape2D_1m2ix")
+action = "jump"
+visibility_mode = 1
+
+[node name="MoveLeftButton" type="TouchScreenButton" parent="TouchOverlay"]
+position = Vector2(65, 535)
+shape = SubResource("RectangleShape2D_1m2ix")
+action = "move_left"
+visibility_mode = 1
+
+[node name="MoveUpButton" type="TouchScreenButton" parent="TouchOverlay"]
+position = Vector2(195, 405)
+shape = SubResource("RectangleShape2D_1m2ix")
+action = "move_up"
+visibility_mode = 1
+
+[node name="MoveRightButton" type="TouchScreenButton" parent="TouchOverlay"]
+position = Vector2(325, 535)
+shape = SubResource("RectangleShape2D_1m2ix")
+action = "move_right"
+visibility_mode = 1
+
+[node name="MoveDownButton" type="TouchScreenButton" parent="TouchOverlay"]
+position = Vector2(195, 535)
+shape = SubResource("RectangleShape2D_1m2ix")
+action = "move_down"
+visibility_mode = 1
 
 [connection signal="timeout" from="CoinQueueProcessor" to="." method="_on_coin_queue_processor_timeout"]
