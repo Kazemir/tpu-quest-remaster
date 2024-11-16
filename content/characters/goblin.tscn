@@ -1,10 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://cqio2e4abmn31"]
+[gd_scene load_steps=21 format=3 uid="uid://cqio2e4abmn31"]
 
 [ext_resource type="Script" path="res://content/characters/goblin.gd" id="1_d81us"]
 [ext_resource type="Texture2D" uid="uid://c3npn56vwuvme" path="res://content/graphics/characters/gremlins.png" id="1_hmkht"]
 [ext_resource type="AudioStream" uid="uid://ckrt16ekwqhi3" path="res://content/audio/enemy_pain.wav" id="2_pxwrv"]
 [ext_resource type="AudioStream" uid="uid://csasvoqfb2pdc" path="res://content/audio/enemy_death.wav" id="3_gbg7l"]
-[ext_resource type="BehaviorTree" uid="uid://piwqn1nhutod" path="res://ai/trees/goblin.tres" id="5_hsunp"]
 [ext_resource type="Texture2D" uid="uid://bbkrxslju54uk" path="res://content/graphics/particle.png" id="6_5on5w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfuvu"]
@@ -64,8 +63,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68vui"]
 size = Vector2(75.5, 73.5)
-
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_84k4p"]
 
 [sub_resource type="Animation" id="Animation_qu0qo"]
 length = 0.001
@@ -154,10 +151,6 @@ bus = &"SFX"
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_gbg7l")
-
-[node name="BTPlayer" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("5_hsunp")
-blackboard_plan = SubResource("BlackboardPlan_84k4p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
