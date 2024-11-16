@@ -64,8 +64,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68vui"]
 size = Vector2(138, 128.75)
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_84k4p"]
-
 [sub_resource type="Animation" id="Animation_v065v"]
 length = 0.001
 tracks/0/type = "value"
@@ -130,6 +128,9 @@ colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oq3me"]
 size = Vector2(138, 130)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svjyi"]
+size = Vector2(560, 200)
+
 [node name="Boss" type="CharacterBody2D" groups=["Enemy", "Saveable"]]
 collision_layer = 4
 script = ExtResource("1_pc6gb")
@@ -154,9 +155,6 @@ bus = &"SFX"
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_5g0fn")
 bus = &"SFX"
-
-[node name="BTPlayer" type="BTPlayer" parent="."]
-blackboard_plan = SubResource("BlackboardPlan_84k4p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -189,6 +187,16 @@ collision_mask = 2
 position = Vector2(0, -65)
 shape = SubResource("RectangleShape2D_oq3me")
 
+[node name="DetectArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="DetectArea"]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_svjyi")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
+[connection signal="body_exited" from="DetectArea" to="." method="_on_detect_area_body_exited"]

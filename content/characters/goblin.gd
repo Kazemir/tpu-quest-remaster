@@ -14,6 +14,7 @@ const JUMP_VELOCITY: float = -400.0
 
 @export var life: int = 60
 var is_damage_taken: bool = false
+var detected_body: Node2D = null
 var pending_attack_target_body: Node2D = null
 
 func _physics_process(delta):
@@ -29,9 +30,19 @@ func _physics_process(delta):
 	elif is_on_wall() and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+	if not is_damage_taken and detected_body != null:
+		var distance = global_position.x - detected_body.global_position.x
+		var dir = -distance / abs(distance)
+		if abs(distance) < 40:
+			move(dir, 0)
+		else:
+			move(dir, SPEED)
+	else:
+		move(1, 0)
+
 	move_and_slide()
 
-func move(dir, speed):
+func move(dir, speed: int):
 	if is_damage_taken:
 		return
 	velocity.x = dir * speed
@@ -110,3 +121,12 @@ func _on_animation_player_animation_finished(anim_name):
 		handle_animation()
 		if pending_attack_target_body != null:
 			pending_attack_target_body.deal_damage(5, self)
+
+
+func _on_detect_area_body_entered(body: Node2D) -> void:
+	detected_body = body
+
+
+func _on_detect_area_body_exited(body: Node2D) -> void:
+	if detected_body == body:
+		detected_body = null

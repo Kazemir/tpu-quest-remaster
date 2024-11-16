@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cqio2e4abmn31"]
+[gd_scene load_steps=22 format=3 uid="uid://cqio2e4abmn31"]
 
 [ext_resource type="Script" path="res://content/characters/goblin.gd" id="1_d81us"]
 [ext_resource type="Texture2D" uid="uid://c3npn56vwuvme" path="res://content/graphics/characters/gremlins.png" id="1_hmkht"]
@@ -128,6 +128,9 @@ colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anrb5"]
 size = Vector2(76, 74)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6eoh"]
+size = Vector2(560, 200)
+
 [node name="Goblin" type="CharacterBody2D" groups=["Enemy", "Saveable"]]
 collision_layer = 4
 script = ExtResource("1_d81us")
@@ -183,6 +186,16 @@ collision_mask = 2
 position = Vector2(-1, -37)
 shape = SubResource("RectangleShape2D_anrb5")
 
+[node name="DetectArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="DetectArea"]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_d6eoh")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
+[connection signal="body_exited" from="DetectArea" to="." method="_on_detect_area_body_exited"]
