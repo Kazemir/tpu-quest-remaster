@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://buc5ojtdvrt8v"]
 
-[ext_resource type="Script" path="res://content/items/coin.gd" id="1_2w45r"]
+[ext_resource type="Script" uid="uid://d0227elupusud" path="res://content/items/coin.gd" id="1_2w45r"]
 [ext_resource type="Texture2D" uid="uid://dsyh63rmb0fft" path="res://content/graphics/items/coin.png" id="2_ddlqq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi27h"]
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6i3jk"]
 _data = {
-"RESET": SubResource("Animation_8woqk"),
-"floating": SubResource("Animation_3ayqj")
+&"RESET": SubResource("Animation_8woqk"),
+&"floating": SubResource("Animation_3ayqj")
 }
 
 [node name="Coin" type="Area2D" groups=["Saveable"]]

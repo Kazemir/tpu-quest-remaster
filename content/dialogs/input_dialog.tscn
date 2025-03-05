@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2v7qlivdkxjy"]
 
 [ext_resource type="Theme" uid="uid://b7cp6hc23xm1k" path="res://content/themes/dialog_theme.tres" id="1_bh58h"]
-[ext_resource type="Script" path="res://content/dialogs/input_dialog.gd" id="2_bdvne"]
+[ext_resource type="Script" uid="uid://bqrmyfo6r8chq" path="res://content/dialogs/input_dialog.gd" id="2_bdvne"]
 
 [node name="InputDialog" type="Control"]
 layout_mode = 3

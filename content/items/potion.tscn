@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://43mv5eduelbw"]
 
-[ext_resource type="Script" path="res://content/items/potion.gd" id="1_5n6na"]
+[ext_resource type="Script" uid="uid://cthyb3o07jarl" path="res://content/items/potion.gd" id="1_5n6na"]
 [ext_resource type="Texture2D" uid="uid://cqyndxf7bmku2" path="res://content/graphics/items/potion_red.png" id="2_ear46"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lrxmx"]
@@ -41,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ufrde"]
 _data = {
-"RESET": SubResource("Animation_41drh"),
-"floating": SubResource("Animation_r4mlt")
+&"RESET": SubResource("Animation_41drh"),
+&"floating": SubResource("Animation_r4mlt")
 }
 
 [node name="Potion" type="Area2D" groups=["Saveable"]]

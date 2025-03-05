@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://cgfwdasgyatrk"]
 
-[ext_resource type="Script" path="res://content/characters/talker.gd" id="1_qoeky"]
+[ext_resource type="Script" uid="uid://w238hqr5g3bp" path="res://content/characters/talker.gd" id="1_qoeky"]
 [ext_resource type="Texture2D" uid="uid://d2xtn8m3n1475" path="res://content/graphics/characters/wily.png" id="1_vygpi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ev8kh"]

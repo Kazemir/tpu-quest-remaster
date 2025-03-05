@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bjy0bjfqvve8l"]
 
-[ext_resource type="Script" path="res://content/characters/enemy_lav.gd" id="1_dicng"]
+[ext_resource type="Script" uid="uid://byt5lg0uv4m5g" path="res://content/characters/enemy_lav.gd" id="1_dicng"]
 [ext_resource type="Texture2D" uid="uid://c0xjt2d1fdfcg" path="res://content/graphics/characters/lav.png" id="1_iwy23"]
 [ext_resource type="AudioStream" uid="uid://d03ri3clupg3a" path="res://content/audio/LAV_death.wav" id="2_nofq4"]
 
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_go1f8"]
 _data = {
-"RESET": SubResource("Animation_88isu"),
-"die": SubResource("Animation_3l82c")
+&"RESET": SubResource("Animation_88isu"),
+&"die": SubResource("Animation_3l82c")
 }
 
 [node name="EnemyLav" type="CharacterBody2D" groups=["Enemy", "Saveable"]]

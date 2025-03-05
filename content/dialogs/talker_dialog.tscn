@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://yjdo1xucnpw7"]
 
 [ext_resource type="Theme" uid="uid://b7cp6hc23xm1k" path="res://content/themes/dialog_theme.tres" id="1_iwbkh"]
-[ext_resource type="Script" path="res://content/dialogs/talker_dialog.gd" id="2_l0a58"]
+[ext_resource type="Script" uid="uid://m8l8vgth7en8" path="res://content/dialogs/talker_dialog.gd" id="2_l0a58"]
 
 [node name="TalkerDialog" type="Control"]
 layout_mode = 3

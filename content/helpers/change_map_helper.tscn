@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cs82nrqoucpff"]
 
-[ext_resource type="Script" path="res://content/helpers/change_map_helper.gd" id="1_clsgh"]
+[ext_resource type="Script" uid="uid://cwq80giekv6jv" path="res://content/helpers/change_map_helper.gd" id="1_clsgh"]
 [ext_resource type="Theme" uid="uid://b8soj2bis0v14" path="res://content/themes/hud_theme.tres" id="1_lwr74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwx3e"]

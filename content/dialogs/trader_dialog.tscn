@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://jt7320igdr8j"]
 
 [ext_resource type="Theme" uid="uid://b7cp6hc23xm1k" path="res://content/themes/dialog_theme.tres" id="1_prr0l"]
-[ext_resource type="Script" path="res://content/dialogs/trader_dialog.gd" id="2_nbedt"]
+[ext_resource type="Script" uid="uid://ccx7cupmeox5t" path="res://content/dialogs/trader_dialog.gd" id="2_nbedt"]
 [ext_resource type="Texture2D" uid="uid://cqyndxf7bmku2" path="res://content/graphics/items/potion_red.png" id="3_6d7an"]
 [ext_resource type="Texture2D" uid="uid://b2wsdnqxf63k8" path="res://content/graphics/items/heart.png" id="4_1ors0"]
-[ext_resource type="Script" path="res://content/dialogs/trade_item.gd" id="4_7plib"]
+[ext_resource type="Script" uid="uid://bahq0e5ufekrs" path="res://content/dialogs/trade_item.gd" id="4_7plib"]
 [ext_resource type="Texture2D" uid="uid://dlpibheo7nm6q" path="res://content/graphics/items/potion_red_small.png" id="4_b8gen"]
-[ext_resource type="Script" path="res://content/dialogs/trade_data.gd" id="7_q2vn0"]
+[ext_resource type="Script" uid="uid://ddkbwbluxcfr6" path="res://content/dialogs/trade_data.gd" id="7_q2vn0"]
 
 [sub_resource type="Resource" id="Resource_x0do5"]
 script = ExtResource("4_7plib")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=3 uid="uid://dtw13btpgx5q2"]
 
 [ext_resource type="Texture2D" uid="uid://6ipdm8h6yhfp" path="res://content/graphics/characters/character.png" id="1_egk1u"]
-[ext_resource type="Script" path="res://content/characters/player.gd" id="1_waxjt"]
+[ext_resource type="Script" uid="uid://ct4h8jjnyqecb" path="res://content/characters/player.gd" id="1_waxjt"]
 [ext_resource type="AudioStream" uid="uid://dxm3t2bgrch2m" path="res://content/audio/player_soundJumpStart.wav" id="3_cd2hf"]
 [ext_resource type="AudioStream" uid="uid://bsnohfkpkwh21" path="res://content/audio/player_soundJumpStop.wav" id="4_trbxg"]
 [ext_resource type="Texture2D" uid="uid://bbkrxslju54uk" path="res://content/graphics/particle.png" id="5_0i8tl"]
@@ -170,8 +170,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1vnhd"]
 _data = {
-"RESET": SubResource("Animation_8mnug"),
-"pain": SubResource("Animation_7bphv")
+&"RESET": SubResource("Animation_8mnug"),
+&"pain": SubResource("Animation_7bphv")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hlfnc"]
@@ -224,7 +224,7 @@ frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_1vnhd")
+&"": SubResource("AnimationLibrary_1vnhd")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -242,10 +242,10 @@ shape = SubResource("RectangleShape2D_g4123")
 [node name="ParticlesJumpRight" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 10
+texture = SubResource("AtlasTexture_ff0jm")
 lifetime = 0.1
 one_shot = true
 lifetime_randomness = 0.05
-texture = SubResource("AtlasTexture_ff0jm")
 spread = 25.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 350.0
@@ -256,10 +256,10 @@ color_ramp = SubResource("Gradient_foeg7")
 [node name="ParticlesJumpLeft" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 10
+texture = SubResource("AtlasTexture_r6a8v")
 lifetime = 0.1
 one_shot = true
 lifetime_randomness = 0.05
-texture = SubResource("AtlasTexture_r6a8v")
 direction = Vector2(-1, 0)
 spread = 25.0
 gravity = Vector2(0, 0)
@@ -272,9 +272,9 @@ color_ramp = SubResource("Gradient_foeg7")
 position = Vector2(0, -35)
 emitting = false
 amount = 20
+texture = SubResource("AtlasTexture_na8hk")
 lifetime = 0.2
 one_shot = true
-texture = SubResource("AtlasTexture_na8hk")
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)

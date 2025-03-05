@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://r1fn4hn0fsxs"]
 
-[ext_resource type="Script" path="res://content/helpers/trader_helper.gd" id="1_dgmgr"]
+[ext_resource type="Script" uid="uid://2ncbe3rmy2h0" path="res://content/helpers/trader_helper.gd" id="1_dgmgr"]
 [ext_resource type="Theme" uid="uid://b8soj2bis0v14" path="res://content/themes/hud_theme.tres" id="2_ksic4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwx3e"]

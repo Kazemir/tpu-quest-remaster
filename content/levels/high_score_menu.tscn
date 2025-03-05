@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bohck1ybvbhcx"]
 
 [ext_resource type="Theme" uid="uid://bjyrd3fvcdm2" path="res://content/themes/menu_theme.tres" id="1_36eo1"]
-[ext_resource type="Script" path="res://content/levels/high_score_menu.gd" id="1_celvj"]
+[ext_resource type="Script" uid="uid://u05br80liryr" path="res://content/levels/high_score_menu.gd" id="1_celvj"]
 
 [node name="AuthorsMenu" type="Control"]
 layout_mode = 3

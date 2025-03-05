@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://cqio2e4abmn31"]
 
-[ext_resource type="Script" path="res://content/characters/goblin.gd" id="1_d81us"]
+[ext_resource type="Script" uid="uid://bjob53u7bhum0" path="res://content/characters/goblin.gd" id="1_d81us"]
 [ext_resource type="Texture2D" uid="uid://c3npn56vwuvme" path="res://content/graphics/characters/gremlins.png" id="1_hmkht"]
 [ext_resource type="AudioStream" uid="uid://ckrt16ekwqhi3" path="res://content/audio/enemy_pain.wav" id="2_pxwrv"]
 [ext_resource type="AudioStream" uid="uid://csasvoqfb2pdc" path="res://content/audio/enemy_death.wav" id="3_gbg7l"]
@@ -113,9 +113,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wtjrf"]
 _data = {
-"RESET": SubResource("Animation_qu0qo"),
-"die": SubResource("Animation_l3vju"),
-"pain": SubResource("Animation_2vqub")
+&"RESET": SubResource("Animation_qu0qo"),
+&"die": SubResource("Animation_l3vju"),
+&"pain": SubResource("Animation_2vqub")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mwfmf"]
@@ -157,16 +157,16 @@ stream = ExtResource("3_gbg7l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_wtjrf")
+&"": SubResource("AnimationLibrary_wtjrf")
 }
 
 [node name="BloodParticles" type="CPUParticles2D" parent="."]
 position = Vector2(0, -35)
 emitting = false
 amount = 30
+texture = SubResource("AtlasTexture_mwfmf")
 lifetime = 0.2
 one_shot = true
-texture = SubResource("AtlasTexture_mwfmf")
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)

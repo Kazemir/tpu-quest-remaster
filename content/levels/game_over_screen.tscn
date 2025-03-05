@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cigp54esaxycb"]
 
-[ext_resource type="Script" path="res://content/levels/game_over_screen.gd" id="1_25qbd"]
+[ext_resource type="Script" uid="uid://b8orlu56w3g3m" path="res://content/levels/game_over_screen.gd" id="1_25qbd"]
 [ext_resource type="Texture2D" uid="uid://de7ofdpgdmwbb" path="res://content/graphics/gameOver.png" id="1_egesn"]
 [ext_resource type="AudioStream" uid="uid://cp251kset1qe" path="res://content/audio/gameOver.wav" id="3_gqc10"]
 
@@ -37,8 +37,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y50fp"]
 _data = {
-"RESET": SubResource("Animation_4eio1"),
-"launch": SubResource("Animation_6jl0f")
+&"RESET": SubResource("Animation_4eio1"),
+&"launch": SubResource("Animation_6jl0f")
 }
 
 [node name="GameOverScreen" type="Node2D"]

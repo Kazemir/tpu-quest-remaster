@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dl22dgm5uy3mi" path="res://content/items/weapon.tscn" id="11_ckvdm"]
 [ext_resource type="PackedScene" uid="uid://dnu04upm24n1n" path="res://content/items/sword_light.tscn" id="12_0n4j7"]
 [ext_resource type="PackedScene" uid="uid://di1ltu7leiaqb" path="res://content/characters/trader.tscn" id="13_8oc87"]
-[ext_resource type="Script" path="res://content/dialogs/trade_item.gd" id="14_cg5tk"]
+[ext_resource type="Script" uid="uid://bahq0e5ufekrs" path="res://content/dialogs/trade_item.gd" id="14_cg5tk"]
 [ext_resource type="PackedScene" uid="uid://cgfwdasgyatrk" path="res://content/characters/talker.tscn" id="14_p35x8"]
 [ext_resource type="PackedScene" uid="uid://r1fn4hn0fsxs" path="res://content/helpers/trader_helper.tscn" id="14_y4kis"]
 [ext_resource type="Texture2D" uid="uid://dlpibheo7nm6q" path="res://content/graphics/items/potion_red_small.png" id="15_kgkpn"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cqio2e4abmn31" path="res://content/characters/goblin.tscn" id="17_drixb"]
 [ext_resource type="Texture2D" uid="uid://b2wsdnqxf63k8" path="res://content/graphics/items/heart.png" id="17_hw032"]
 [ext_resource type="PackedScene" uid="uid://b36tbjggvho00" path="res://system/game_hud.tscn" id="18_6eodi"]
-[ext_resource type="Script" path="res://content/dialogs/trade_data.gd" id="18_yh1bt"]
+[ext_resource type="Script" uid="uid://ddkbwbluxcfr6" path="res://content/dialogs/trade_data.gd" id="18_yh1bt"]
 [ext_resource type="PackedScene" uid="uid://cs82nrqoucpff" path="res://content/helpers/change_map_helper.tscn" id="19_41d1q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bydv6"]
@@ -170,15 +170,15 @@ tile_set = ExtResource("2_emous")
 tile_map_data = PackedByteArray("AAD+//z/AQAHAAMAAAACAPz/AQAIAAMAAAACAP3/AQABAAEAAAD1//3/AQABAAEAAAD5//v/AQABAAEAAAALAPr/AQADAAIAAAAHAP7/AQAGAAAAAAAMAP7/AQAIAAAAAAALAP7/AQAHAAAAAAAKAP7/AQAHAAAAAAAJAP7/AQAHAAAAAAAIAP7/AQAHAAAAAADi//b/AQADAAEAAADm//b/AQAEAAEAAADk//f/AQAAAAEAAADi//f/AQAJAAAAAADj//f/AQAJAAAAAADl//f/AQAJAAIAAADl//n/AQAGAAEAAADg//j/AQABAAEAAADZ//n/AQAFAAIAAADb//n/AQAEAAIAAADa//n/AQAEAAIAAADY//n/AQAEAAIAAADN//P/AQAFAAAAAADN//T/AQAEAAAAAAAPAAAAAQACAAEAAAAUAPz/AQABAAEAAAAeAPz/AQABAAIAAAAdAPn/AQACAAAAAAAiAP7/AQADAAAAAAAkAPH/AQAEAAMAAABCAPz/AQAFAAAAAABCAP3/AQAEAAAAAABDAPv/AQABAAAAAABBAPv/AQABAAAAAABCAPj/AQAGAAMAAABCAPX/AQAGAAMAAABCAPL/AQAGAAMAAAA+APz/AQAGAAIAAAA7APz/AQAGAAIAAAA4APz/AQAGAAIAAAAxAPz/AQAGAAIAAAA0APz/AQAGAAIAAAAhAPn/AQAIAAIAAAAfAPD/AQAHAAIAAADr//3/AQAHAAEAAAA=")
 tile_set = SubResource("TileSet_83cfg")
 
-[node name="Coins" type="TileMapLayer" parent="."]
+[node name="Coins" type="TileMapLayer" parent="." groups=["SaveableTileMap"]]
 tile_map_data = PackedByteArray("AAAGAPn/AAAAAAAAAQAIAPn/AAAAAAAAAQAKAPn/AAAAAAAAAQAMAPn/AAAAAAAAAQAYAO//AAAAAAAABAD0/wIAAAAAAAAABADa//j/AAAAAAAABADe/+b/AAAAAAAABQDc/+b/AAAAAAAABQDa/+b/AAAAAAAABQA=")
 tile_set = SubResource("TileSet_y4g4f")
 
-[node name="Potions" type="TileMapLayer" parent="."]
+[node name="Potions" type="TileMapLayer" parent="." groups=["SaveableTileMap"]]
 tile_map_data = PackedByteArray("AADT/+z/AAAAAAAAAwABAAIAAAAAAAAAAgAZAPz/AAAAAAAAAQA=")
 tile_set = SubResource("TileSet_ahisb")
 
-[node name="Weapons" type="TileMapLayer" parent="."]
+[node name="Weapons" type="TileMapLayer" parent="." groups=["SaveableTileMap"]]
 tile_map_data = PackedByteArray("AADn/+b/AAAAAAAAAQA=")
 tile_set = SubResource("TileSet_e6sho")
 
@@ -244,13 +244,3 @@ level_name = "tower_level"
 [node name="ToLavLevel" parent="." instance=ExtResource("19_41d1q")]
 position = Vector2(-2020, -441)
 level_name = "lav_level"
-
-[node name="GoblinTest" parent="." instance=ExtResource("17_drixb")]
-position = Vector2(-259, -168)
-
-[node name="Weapon" parent="." instance=ExtResource("11_ckvdm")]
-position = Vector2(-141, -145)
-
-[node name="Weapon2" parent="." instance=ExtResource("11_ckvdm")]
-position = Vector2(515, 43)
-type = 1

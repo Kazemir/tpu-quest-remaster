@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://crsquj86f5i45"]
 
-[ext_resource type="Script" path="res://content/dialogs/trader_item.gd" id="1_4hp2b"]
+[ext_resource type="Script" uid="uid://dv74cyi0fwdye" path="res://content/dialogs/trader_item.gd" id="1_4hp2b"]
 [ext_resource type="Texture2D" uid="uid://dlpibheo7nm6q" path="res://content/graphics/items/potion_red_small.png" id="1_bfc7h"]
 [ext_resource type="Theme" uid="uid://b7cp6hc23xm1k" path="res://content/themes/dialog_theme.tres" id="1_g887m"]
-[ext_resource type="Script" path="res://content/dialogs/trade_item.gd" id="3_h7aky"]
+[ext_resource type="Script" uid="uid://bahq0e5ufekrs" path="res://content/dialogs/trade_item.gd" id="3_h7aky"]
 
 [sub_resource type="Resource" id="Resource_2isup"]
 script = ExtResource("3_h7aky")

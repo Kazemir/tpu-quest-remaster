@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TalkData" load_steps=2 format=3 uid="uid://ddspff8aqoldp"]
 
-[ext_resource type="Script" path="res://content/dialogs/talk_data.gd" id="1_lnqsy"]
+[ext_resource type="Script" uid="uid://cx852yujrutck" path="res://content/dialogs/talk_data.gd" id="1_lnqsy"]
 
 [resource]
 script = ExtResource("1_lnqsy")

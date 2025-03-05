@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://fk0ua0ms8jb3"]
 
-[ext_resource type="Script" path="res://content/levels/controls_screen.gd" id="1_bq43s"]
+[ext_resource type="Script" uid="uid://borlhr4js4qfl" path="res://content/levels/controls_screen.gd" id="1_bq43s"]
 [ext_resource type="Texture2D" uid="uid://vtv6o0xt8ips" path="res://content/graphics/controls.jpg" id="1_obmhd"]
 
 [sub_resource type="Animation" id="Animation_fk3w4"]
@@ -36,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_645gm"]
 _data = {
-"RESET": SubResource("Animation_fk3w4"),
-"launch": SubResource("Animation_0lsbw")
+&"RESET": SubResource("Animation_fk3w4"),
+&"launch": SubResource("Animation_0lsbw")
 }
 
 [node name="ControlsScreen" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dl22dgm5uy3mi"]
 
-[ext_resource type="Script" path="res://content/items/weapon.gd" id="1_3io50"]
+[ext_resource type="Script" uid="uid://c124ybomtdqjv" path="res://content/items/weapon.gd" id="1_3io50"]
 [ext_resource type="Texture2D" uid="uid://b81u6flef0uf5" path="res://content/graphics/items/sword.png" id="1_mnlqf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d15oo"]
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_idg6v"]
 _data = {
-"RESET": SubResource("Animation_op2ai"),
-"floating": SubResource("Animation_37x2c")
+&"RESET": SubResource("Animation_op2ai"),
+&"floating": SubResource("Animation_37x2c")
 }
 
 [node name="Weapon" type="Area2D" groups=["Saveable"]]

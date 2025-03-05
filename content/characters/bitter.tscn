@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://ce80f7k81y6yi"]
 
-[ext_resource type="Script" path="res://content/characters/bitter.gd" id="1_gdjtb"]
+[ext_resource type="Script" uid="uid://c3n1nehrjr27k" path="res://content/characters/bitter.gd" id="1_gdjtb"]
 [ext_resource type="Texture2D" uid="uid://c3npn56vwuvme" path="res://content/graphics/characters/gremlins.png" id="1_twl5x"]
 [ext_resource type="AudioStream" uid="uid://ckrt16ekwqhi3" path="res://content/audio/enemy_pain.wav" id="3_av07j"]
 [ext_resource type="AudioStream" uid="uid://csasvoqfb2pdc" path="res://content/audio/enemy_death.wav" id="4_qufvu"]
@@ -80,9 +80,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_00bcx"]
 _data = {
-"RESET": SubResource("Animation_p0y1x"),
-"die": SubResource("Animation_3fyhb"),
-"pain": SubResource("Animation_w8ex6")
+&"RESET": SubResource("Animation_p0y1x"),
+&"die": SubResource("Animation_3fyhb"),
+&"pain": SubResource("Animation_w8ex6")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4vg23"]
@@ -113,7 +113,7 @@ shape = SubResource("RectangleShape2D_7e3nk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_00bcx")
+&"": SubResource("AnimationLibrary_00bcx")
 }
 
 [node name="PainSound" type="AudioStreamPlayer2D" parent="."]
@@ -127,9 +127,9 @@ stream = ExtResource("4_qufvu")
 position = Vector2(0, -30)
 emitting = false
 amount = 30
+texture = SubResource("AtlasTexture_4vg23")
 lifetime = 0.2
 one_shot = true
-texture = SubResource("AtlasTexture_4vg23")
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)

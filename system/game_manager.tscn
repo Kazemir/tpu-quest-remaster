@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b2fkemy1mixq3"]
 
-[ext_resource type="Script" path="res://system/game_manager.gd" id="1_g2fxb"]
+[ext_resource type="Script" uid="uid://bamu0cdg5lwhd" path="res://system/game_manager.gd" id="1_g2fxb"]
 [ext_resource type="AudioStream" uid="uid://boxm5vpmxoook" path="res://content/music/KineticLaw_HardcoreMode.mp3" id="2_n41ct"]
 [ext_resource type="AudioStream" uid="uid://c6wbex0bs3u2r" path="res://content/music/MightandMagic_Book1__ShopTheme.mp3" id="3_li1gy"]
 [ext_resource type="AudioStream" uid="uid://dv6pcviplrq8e" path="res://content/music/Factor6_Gianna.mp3" id="4_r371t"]

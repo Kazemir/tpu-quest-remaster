@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnxq0wmqqdy2b"]
 
-[ext_resource type="Script" path="res://content/levels/win_screen.gd" id="1_8ovui"]
+[ext_resource type="Script" uid="uid://detr24j0le5yo" path="res://content/levels/win_screen.gd" id="1_8ovui"]
 [ext_resource type="Texture2D" uid="uid://dshn0lcojl6ik" path="res://content/graphics/youWin.png" id="1_x3v6f"]
 
 [sub_resource type="Animation" id="Animation_42uch"]
@@ -36,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n0s4v"]
 _data = {
-"RESET": SubResource("Animation_42uch"),
-"launch": SubResource("Animation_p6tk8")
+&"RESET": SubResource("Animation_42uch"),
+&"launch": SubResource("Animation_p6tk8")
 }
 
 [node name="WinScreen" type="Node2D"]
