@@ -47,6 +47,9 @@ func _on_tree_changed():
 
 		get_tree().call_group("Saveable", "on_before_load_game")
 
+		for tileMap: TileMapLayer in get_tree().get_nodes_in_group(&"SaveableTileMap"):
+			tileMap.clear()
+
 		var player: Node2D = get_tree().get_first_node_in_group("Player")
 		player.global_position = saved_game.player_position
 

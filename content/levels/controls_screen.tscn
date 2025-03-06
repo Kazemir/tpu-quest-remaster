@@ -58,7 +58,7 @@ color = Color(0.141176, 0.141176, 0.141176, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CanvasLayer")
 libraries = {
-"": SubResource("AnimationLibrary_645gm")
+&"": SubResource("AnimationLibrary_645gm")
 }
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
