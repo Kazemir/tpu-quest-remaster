@@ -76,6 +76,7 @@ func handleAction():
 		new_game_label:
 			GameManager.go_to_game()
 			GameManager.resetPlayer()
+			GameSaver.new_game()
 			get_tree().change_scene_to_packed(start_level)
 		continue_label:
 			GameManager.go_to_game()

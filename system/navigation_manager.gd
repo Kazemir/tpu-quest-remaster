@@ -11,7 +11,7 @@ func get_pending_bundle() -> Dictionary:
 	return dict
 
 func go_to_level(level_name: String, bundle: Dictionary = {}) -> void:
-	await Target.new(level_name).go(get_tree(), bundle)
+	await Target.new(level_name).go(get_tree(), bundle, true, true)
 
 var MainMenu: Target = Target.new("main_menu")
 var HomeLevel: Target = Target.new("home_level")
@@ -20,15 +20,18 @@ var LavLevel: Target = Target.new("lav_level")
 var TowerLevel: Target = Target.new("tower_level")
 
 class Target:
-
 	var path: String
 
 	func _init(name: String) -> void:
 		self.path = LEVELS_DIR + name + SCENE_EXT
 
-	func go(tree: SceneTree, bundle: Dictionary = {}, with_transition: bool = true) -> void:
+	func go(tree: SceneTree, bundle: Dictionary = {}, with_transition: bool = true, save_level: bool = false) -> void:
 		if with_transition:
 			TransitionManager.transition()
 			await TransitionManager.on_transition_finished
 		NavigationManager._pending_bundle = bundle
+		if save_level:
+			GameSaver.save_level()
 		tree.change_scene_to_file(path)
+		if save_level:
+			GameSaver.shedule_level_loading()
