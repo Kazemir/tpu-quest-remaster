@@ -179,7 +179,7 @@ radius = 11.0
 height = 74.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4123"]
-size = Vector2(58, 70)
+size = Vector2(40, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ff0jm"]
 atlas = ExtResource("5_0i8tl")
@@ -236,7 +236,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(18, -45)
+position = Vector2(30, -30)
 shape = SubResource("RectangleShape2D_g4123")
 
 [node name="ParticlesJumpRight" type="CPUParticles2D" parent="."]

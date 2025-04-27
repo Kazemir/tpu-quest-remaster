@@ -33,8 +33,6 @@ gdscript/warnings/inferred_declaration=1
 
 window/size/viewport_width=800
 window/size/viewport_height=600
-window/size/window_width_override=1600
-window/size/window_height_override=1200
 window/stretch/mode="canvas_items"
 
 [global_group]
@@ -126,3 +124,4 @@ locale/translations=PackedStringArray("res://content/localization/localization.b
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

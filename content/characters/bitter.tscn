@@ -93,7 +93,7 @@ region = Rect2(10, 0, 10, 10)
 colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43o2n"]
-size = Vector2(73, 61)
+size = Vector2(80, 75)
 
 [node name="Bitter" type="CharacterBody2D" groups=["Enemy", "Saveable"]]
 collision_layer = 4
@@ -105,7 +105,7 @@ scale = Vector2(2.7, 2.7)
 sprite_frames = SubResource("SpriteFrames_1vl6u")
 autoplay = "default"
 frame = 1
-frame_progress = 0.102894
+frame_progress = 0.396667
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, -31.5)
@@ -146,7 +146,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(-1.5, -31.5)
+position = Vector2(0, -37.5)
 shape = SubResource("RectangleShape2D_43o2n")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

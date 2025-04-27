@@ -7,7 +7,6 @@ func _on_ready() -> void:
 		score_list.remove_child(child)
 
 	var scores = HighscoreManager.highscores
-	print(scores)
 	for score in scores:
 		var label_name = Label.new()
 		label_name.text = score.name

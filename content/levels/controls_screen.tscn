@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://fk0ua0ms8jb3"]
+[gd_scene load_steps=7 format=3 uid="uid://fk0ua0ms8jb3"]
 
 [ext_resource type="Script" uid="uid://borlhr4js4qfl" path="res://content/levels/controls_screen.gd" id="1_bq43s"]
-[ext_resource type="Texture2D" uid="uid://vtv6o0xt8ips" path="res://content/graphics/controls.jpg" id="1_obmhd"]
+[ext_resource type="Texture2D" uid="uid://bq36wf1bsr08t" path="res://content/graphics/controls_no_labels.png" id="2_agvl0"]
+[ext_resource type="Theme" uid="uid://qk3beky7opc5" path="res://content/themes/controls_screen_theme.tres" id="3_ya1o4"]
 
 [sub_resource type="Animation" id="Animation_fk3w4"]
 length = 0.001
@@ -48,7 +49,51 @@ script = ExtResource("1_bq43s")
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_obmhd")
+texture = ExtResource("2_agvl0")
+
+[node name="MovementLabel" type="Label" parent="CanvasLayer"]
+offset_left = 14.0
+offset_top = 51.0
+offset_right = 341.0
+offset_bottom = 96.0
+theme = ExtResource("3_ya1o4")
+text = "controlsScreen_movement"
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="JumpLabel" type="Label" parent="CanvasLayer"]
+offset_left = 357.0
+offset_top = 55.0
+offset_right = 760.0
+offset_bottom = 100.0
+theme = ExtResource("3_ya1o4")
+text = "controlsScreen_jump"
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="ActionLabel" type="Label" parent="CanvasLayer"]
+offset_left = 358.0
+offset_top = 226.0
+offset_right = 761.0
+offset_bottom = 271.0
+theme = ExtResource("3_ya1o4")
+text = "controlsScreen_action"
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="BackLabel" type="Label" parent="CanvasLayer"]
+offset_left = 358.0
+offset_top = 408.0
+offset_right = 761.0
+offset_bottom = 453.0
+theme = ExtResource("3_ya1o4")
+text = "controlsScreen_back"
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 801.0

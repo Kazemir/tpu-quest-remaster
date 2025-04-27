@@ -10,8 +10,6 @@ extends Node2D
 @onready var authors_label: Label = $CanvasLayer/MainMenuContainer/GridContainer/CenterContainer5/AuthorsLabel
 @onready var exit_label: Label = $CanvasLayer/MainMenuContainer/GridContainer/CenterContainer6/ExitLabel
 
-@onready var menu_labels: Array[Label] = [new_game_label, continue_label, settings_label, high_scores_label, authors_label, exit_label]
-
 @onready var start_level: PackedScene = preload("res://content/levels/home_level.tscn") as PackedScene
 @onready var authors_menu: PackedScene = preload("res://content/levels/authors_menu.tscn") as PackedScene
 @onready var high_score_menu: PackedScene = preload("res://content/levels/high_score_menu.tscn") as PackedScene
@@ -19,10 +17,18 @@ extends Node2D
 
 @onready var exit_confirm_dialog: PackedScene = preload("res://content/dialogs/exit_confirm_dialog.tscn") as PackedScene
 
+var menu_labels: Array[Label]
+
 var currentMenuElement: int = 0
 var currentChildMenu: Node = null
 
 func _ready():
+	if OS.has_feature("web"):
+		menu_labels = [new_game_label, continue_label, settings_label, high_scores_label, authors_label]
+		exit_label.visible = false
+	else:
+		menu_labels = [new_game_label, continue_label, settings_label, high_scores_label, authors_label, exit_label]
+
 	GameManager.go_to_main_menu()
 
 	var bundle = NavigationManager.get_pending_bundle()
@@ -41,7 +47,7 @@ func _process(_delta):
 			canvas_layer.remove_child(currentChildMenu)
 			currentChildMenu = null
 			main_menu_container.visible = true
-		else:
+		elif not OS.has_feature("web"):
 			handleExit()
 	if Input.is_action_just_pressed("move_up") and currentChildMenu == null:
 		newCurrentMenuElement -= 1

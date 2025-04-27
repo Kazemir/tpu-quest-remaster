@@ -22,8 +22,8 @@ var is_in_main_menu: bool = false
 var is_in_dialog_menu: bool = false
 var is_in_game: bool = false
 
-var setting_sound: int = 6
-var setting_music: int = 9
+var setting_sound: int = 10
+var setting_music: int = 2
 
 const MAX_HEALTH: int = 100
 enum WeaponType {None, Sword, SwordLight}
@@ -151,11 +151,18 @@ func _setMoney(val: int) -> void:
 func _on_coin_queue_processor_timeout() -> void:
 	if player_money_queue == 0:
 		return
-	_setMoney(player_money + 1)
+	var coin_add_step = 1
+	if player_money_queue > 50:
+		coin_add_step = 10
+	elif player_money_queue > 20:
+		coin_add_step = 5
+	elif player_money_queue > 10:
+		coin_add_step = 2
+	_setMoney(player_money + coin_add_step)
 	if coin_sound.playing:
 		coin_sound.stop()
 	coin_sound.play()
-	player_money_queue -= 1
+	player_money_queue -= coin_add_step
 
 func triggerGameWin() -> void:
 	is_in_game = false

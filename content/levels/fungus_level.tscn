@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bjwtr861vjv6t"]
+[gd_scene load_steps=40 format=4 uid="uid://bjwtr861vjv6t"]
 
 [ext_resource type="Texture2D" uid="uid://2y35tnw7ondi" path="res://content/graphics/clouds2.png" id="2_egik3"]
 [ext_resource type="TileSet" uid="uid://uk3bf85i3ky3" path="res://content/levels/tile_set.tres" id="2_emous"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b36tbjggvho00" path="res://system/game_hud.tscn" id="18_6eodi"]
 [ext_resource type="Script" uid="uid://ddkbwbluxcfr6" path="res://content/dialogs/trade_data.gd" id="18_yh1bt"]
 [ext_resource type="PackedScene" uid="uid://cs82nrqoucpff" path="res://content/helpers/change_map_helper.tscn" id="19_41d1q"]
+[ext_resource type="Texture2D" uid="uid://cqr3cscxmxi70" path="res://content/graphics/characters/doctor.png" id="27_jx7o0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bydv6"]
 texture = ExtResource("4_wk5mk")
@@ -244,3 +245,8 @@ level_name = "tower_level"
 [node name="ToLavLevel" parent="." instance=ExtResource("19_41d1q")]
 position = Vector2(-2020, -441)
 level_name = "lav_level"
+
+[node name="Doctor" type="Sprite2D" parent="."]
+position = Vector2(2455, -300)
+scale = Vector2(0.226, 0.226)
+texture = ExtResource("27_jx7o0")

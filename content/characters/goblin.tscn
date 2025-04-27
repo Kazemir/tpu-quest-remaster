@@ -126,7 +126,7 @@ region = Rect2(10, 0, 10, 10)
 colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anrb5"]
-size = Vector2(76, 74)
+size = Vector2(82, 82)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6eoh"]
 size = Vector2(560, 200)
@@ -183,7 +183,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(-1, -37)
+position = Vector2(-1, -41)
 shape = SubResource("RectangleShape2D_anrb5")
 
 [node name="DetectArea" type="Area2D" parent="."]

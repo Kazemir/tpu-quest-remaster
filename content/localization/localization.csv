@@ -24,3 +24,7 @@ gameHelp_talk,ГОВОРИТЬ,TALK,TALK,ГОВОРИТИ,ГАВАРЫЦЬ,KONU�
 gameHelp_trade,ТОРГОВАТЬ,TRADE,TRADE,ТОРГУВАТИ,ТОРГАВАЦЬ,TİCARET,COMMERCE,COMERCIO,COMMERCIARE,OBCHOD,TROCA
 gameMenu_pause,Пауза,Pause,Pause,Пауза,Паўза,Duraklat,Pause,Pausa,Pausa,Pauza,Pausa
 gameMenu_Exit,Выйти в главное меню,Exit to main menu,Zum Hauptmenü zurückkehren,Вийти в головне меню,Выйсці ў галоўнае меню,Ana menüye çıkış yap,Sortir au menu principal,Salir al menú principal,Uscire al menu principale,Opustit hlavní menu,Sair para o menu principal
+controlsScreen_movement,Движение,Movement,Bewegung,Рух,Рух,İlerleme,Mouvement,Movimiento,Movimento,Pohyb,Movimento
+controlsScreen_jump,Прыжок,Jump,Hüpfen,Стрибок,Стрыбок,Zıplama,Saut,Saltar,Salto,Skočit,Pular
+controlsScreen_action,Действие,Action,Aktion,Дія,Дзеянне,Eylem,Action,Acción,Azione,Aktivita,Acção
+controlsScreen_back,Назад,Back,Zurück,Назад,Назад,Geri,Dernière,Volver,Indietro,Zpět,Voltar
