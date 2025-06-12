@@ -110,6 +110,7 @@ sources/0 = SubResource("TileSetScenesCollectionSource_sliix")
 
 [node name="XmlLevel" type="Node2D"]
 script = ExtResource("1_ak6jj")
+level_file = "net2.xml"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -100
@@ -122,6 +123,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.403922, 0.654902, 0.843137, 1)
+
+[node name="Parallax" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.01, 0.01)
+
+[node name="BgPicture" type="Sprite2D" parent="Parallax"]
+z_index = -1
+position = Vector2(0, 270)
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 position = Vector2(360, 280)

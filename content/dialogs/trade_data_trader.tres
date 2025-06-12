@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="TradeData" load_steps=9 format=3 uid="uid://c1k45jldnjo14"]
+
+[ext_resource type="Script" uid="uid://bahq0e5ufekrs" path="res://content/dialogs/trade_item.gd" id="1_vl11p"]
+[ext_resource type="Texture2D" uid="uid://dlpibheo7nm6q" path="res://content/graphics/items/potion_red_small.png" id="2_4huqv"]
+[ext_resource type="Texture2D" uid="uid://cqyndxf7bmku2" path="res://content/graphics/items/potion_red.png" id="3_wflyi"]
+[ext_resource type="Texture2D" uid="uid://b2wsdnqxf63k8" path="res://content/graphics/items/heart.png" id="4_grypo"]
+[ext_resource type="Script" uid="uid://ddkbwbluxcfr6" path="res://content/dialogs/trade_data.gd" id="5_hadih"]
+
+[sub_resource type="Resource" id="Resource_x0do5"]
+script = ExtResource("1_vl11p")
+item_icon = ExtResource("2_4huqv")
+item_healin_power = 25
+price = 5
+
+[sub_resource type="Resource" id="Resource_npexh"]
+script = ExtResource("1_vl11p")
+item_icon = ExtResource("3_wflyi")
+item_healin_power = 50
+price = 10
+
+[sub_resource type="Resource" id="Resource_5mxgt"]
+script = ExtResource("1_vl11p")
+item_icon = ExtResource("4_grypo")
+item_healin_power = 100
+price = 15
+
+[resource]
+script = ExtResource("5_hadih")
+name = "game_traderBox_caption"
+items = Array[ExtResource("1_vl11p")]([SubResource("Resource_x0do5"), SubResource("Resource_npexh"), SubResource("Resource_5mxgt")])

@@ -1,9 +1,17 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bjyrd3fvcdm2"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bjyrd3fvcdm2"]
 
 [ext_resource type="FontFile" uid="uid://dv2r1wmumw5g5" path="res://content/font/Molot.ttf" id="1_2ear2"]
 [ext_resource type="FontFile" uid="uid://d0jileq7sgpgq" path="res://content/font/Imperial.ttf" id="1_h42le"]
 [ext_resource type="FontFile" uid="uid://cjkn06y4uh5aa" path="res://content/font/PixelCyr.ttf" id="3_hbgiq"]
 [ext_resource type="FontFile" uid="uid://wsumxatdb1tw" path="res://content/font/JoystixMonospace.ttf" id="4_tkyu8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uoud6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jemjq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0uuxu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nu16r"]
 
 [resource]
 Body1/base_type = &"Label"
@@ -15,6 +23,17 @@ Body2/fonts/font = ExtResource("1_h42le")
 Body3/base_type = &"Label"
 Body3/font_sizes/font_size = 14
 Body3/fonts/font = ExtResource("1_h42le")
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0.94902, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.94902, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 0, 0, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_2ear2")
+Button/styles/focus = SubResource("StyleBoxEmpty_uoud6")
+Button/styles/hover = SubResource("StyleBoxEmpty_jemjq")
+Button/styles/normal = SubResource("StyleBoxEmpty_0uuxu")
+Button/styles/pressed = SubResource("StyleBoxEmpty_nu16r")
 ItemList/colors/font_color = Color(0, 0, 0, 1)
 ItemList/colors/font_selected_color = Color(1, 0, 0, 1)
 ItemList/font_sizes/font_size = 32
