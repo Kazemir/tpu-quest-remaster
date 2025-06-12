@@ -25,10 +25,12 @@ const SOUND_CHECK_V_PADDING: float = 5.0
 @onready var attack_collision_shape: CollisionShape2D = $AttackArea/CollisionShape
 
 @onready var god_mode_timer: Timer = $GodModeTimer
+@onready var coyote_timer: Timer = $CoyoteTimer
 
 var is_floating: bool = false
 var is_knockback: bool = false
 var is_god_mode: bool = false
+var is_coyote_timer_activated: bool = false
 
 var attack_target_body_list: Array[Node2D] = []
 
@@ -44,9 +46,11 @@ func _physics_process(delta: float) -> void:
 
 	if is_knockback:
 		pass
-	elif Input.is_action_just_pressed("jump") and is_on_floor():
+	elif Input.is_action_just_pressed("jump") and (is_on_floor() or not coyote_timer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
 		sound_jump_start.play()
+		coyote_timer.stop()
+		is_coyote_timer_activated = true
 
 	var direction: float = Input.get_axis(&"move_left", &"move_right")
 	if is_knockback:
@@ -67,6 +71,15 @@ func _physics_process(delta: float) -> void:
 
 	if not is_knockback and Input.is_action_just_pressed("action"):
 		_perform_attack()
+
+	if is_on_floor():
+		if is_coyote_timer_activated:
+			is_coyote_timer_activated = false
+			coyote_timer.stop()
+	else:
+		if not is_coyote_timer_activated:
+			coyote_timer.start()
+			is_coyote_timer_activated = true
 
 	_update_sprite(direction)
 

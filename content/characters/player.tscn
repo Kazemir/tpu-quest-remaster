@@ -315,6 +315,10 @@ bus = &"SFX"
 wait_time = 1.5
 one_shot = true
 
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.12
+one_shot = true
+
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
